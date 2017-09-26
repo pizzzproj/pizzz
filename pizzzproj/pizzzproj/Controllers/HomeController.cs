@@ -17,7 +17,7 @@ namespace pizzzproj.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "History of PiZZZa";
 
             return View();
         }
