@@ -5,7 +5,7 @@ using System.Text;
 
 namespace pizzzproj.Logic
 {
-    class OrderPizzaLogic
+    public class OrderPizzaLogic
     {
         public int PizzaId { get; set; }
         public string PizzaName { get; set; }
@@ -21,6 +21,16 @@ namespace pizzzproj.Logic
             };
 
             return addPizza;
+        }
+
+        public Pizza ReturnPizza(OrderPizzaLogic pizzaLogic)
+        {
+            return new Pizza()
+            {
+                PizzaId = pizzaLogic.PizzaId,
+                PizzaName = pizzaLogic.PizzaName,
+                PizzaSizeId = pizzaLogic.PizzaSizeId
+            };
         }
     }
 }
