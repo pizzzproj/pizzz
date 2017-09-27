@@ -22,5 +22,15 @@ namespace pizzzproj.Logic
 
             return addPizza;
         }
+
+        public Pizza ReturnPizza(OrderPizzaLogic pizzaLogic)
+        {
+            return new Pizza()
+            {
+                PizzaId = pizzaLogic.PizzaId,
+                PizzaName = pizzaLogic.PizzaName,
+                PizzaSizeId = pizzaLogic.PizzaSizeId
+            };
+        }
     }
 }
