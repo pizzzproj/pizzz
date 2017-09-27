@@ -12,4 +12,9 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\pizzzproj.Data\pizzzproj.Data.csproj" />
+    <ProjectReference Include="..\pizzzproj.Logic\pizzzproj.Logic.csproj" />
+  </ItemGroup>
+
 </Project>
