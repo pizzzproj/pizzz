@@ -11,7 +11,7 @@ namespace pizzzproj.Test
         [Fact]
         public void addOrderItem()
         {
-            var i = new OrderPizzaLogic() { PizzaID = 1, PizzaName = "Cheese Lovers", PizzaSize = "Small" };
+            var i = new OrderPizzaLogic() { PizzaId = 1, PizzaName = "Cheese Lovers", PizzaSizeId = "Small" };
           //  var j = new OrderPizzaLogic() { IDisposable = 2, Name = "Pepperoni", Size = "Large" };
 
             var actual = i.AddPizza();
