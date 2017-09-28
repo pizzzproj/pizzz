@@ -14,6 +14,6 @@ namespace pizzzproj.Data.Helper
         public int PizzaId { get; set; }
         public string PizzaName { get; set; }
         public string PizzaSizeId { get; set; }
-
+        public List<Pizza> Pizzas { get; set; }
     }
 }
