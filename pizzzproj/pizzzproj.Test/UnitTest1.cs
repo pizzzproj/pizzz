@@ -22,16 +22,39 @@ namespace pizzzproj.Test
         }
 
         [Fact]
+
         public void Test2()
+
         {
-            var i = new Side() { SideId = 1, SideName = "Wings", SideSize = "Family" };
+            var i = new Item() { ItemId = 1, ItemName = "Pizza", ItemSize = "Huge" };
 
-            var actual = OrderSideLogic.AddSide(i);
+            var i1 = new Item() { ItemId = 2, ItemName = "Pizza", ItemSize = "big" };
 
-            Assert.Equal(actual.SideId, i.SideId);
-            Assert.Equal(actual.SideName, i.SideName);
-            Assert.Equal(actual.SideSize, i.SideSize);
+            var m = ItemLogic.AddItem(i);
+
+            var n = ItemLogic.AddItem(i1);
+
+            var actual = ItemLogic.DeleteSingleItem(m.ItemId);
+
+            Assert.True(actual);
         }
+
+        [Fact]
+
+        public void Test3()
+
+        {
+            var i = new Item() { ItemId = 1, ItemName = "Pizza", ItemSize = "small" };
+
+            var m = ItemLogic.AddItem(i);
+
+            var actual = ItemLogic.DeleteAllItems();
+
+            Assert.True(actual);
+
+        }
+
+
 
         [Fact]
         public void FindItem()
