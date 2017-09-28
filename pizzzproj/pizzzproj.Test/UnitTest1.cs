@@ -11,25 +11,37 @@ namespace pizzzproj.Test
         public void Test1()
         {
             
-            var i = new Pizza() { PizzaId = 1, PizzaName = "Cheese", PizzaSizeId = "small" };
+            var i = new Item() { ItemId = 1, ItemName = "Sausage", ItemSize = "big"};
 
-            var actual = OrderPizzaLogic.AddPizza(i);
+            var actual = ItemLogic.AddItem(i);
 
-            Assert.Equal(actual.PizzaId, i.PizzaId);
-            Assert.Equal(actual.PizzaName, i.PizzaName);
-            Assert.Equal(actual.PizzaSizeId, i.PizzaSizeId);
+            Assert.Equal(actual.ItemId, i.ItemId);
+            Assert.Equal(actual.ItemName, i.ItemName);
+            Assert.Equal(actual.ItemSize, i.ItemSize);
         }
 
         [Fact]
         public void Test2()
         {
-            var i = new Side() { SideId = 1, SideName = "Wings", SideSize = "Family" };
+            var i = new Item() { ItemId = 1, ItemName = "Pizza", ItemSize = "Huge"};
+            var i1 = new Item() { ItemId = 2, ItemName = "Pizza", ItemSize = "big" };
 
-            var actual = OrderSideLogic.AddSide(i);
+            var m = ItemLogic.AddItem(i);
+            var n = ItemLogic.AddItem(i1);
+            var actual = ItemLogic.DeleteSingleItem(m.ItemId);
 
-            Assert.Equal(actual.SideId, i.SideId);
-            Assert.Equal(actual.SideName, i.SideName);
-            Assert.Equal(actual.SideSize, i.SideSize);
+            Assert.True(actual);
+        }
+
+        [Fact]
+        public void Test3()
+        {
+            var i = new Item() { ItemId = 1, ItemName = "Pizza", ItemSize = "small" };
+            var m = ItemLogic.AddItem(i);
+
+            var actual = ItemLogic.DeleteAllItems();
+
+            Assert.True(actual);
         }
     }
 }
