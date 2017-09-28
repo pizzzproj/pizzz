@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using pizzzproj.Data.Helper;
-using System.Linq;
 
 namespace pizzzproj.Logic
 {
-    public class ItemLogic
+    class ItemLogic
     {
         public int ItemId { get; set; }
         public string ItemName { get; set; }
@@ -28,21 +27,24 @@ namespace pizzzproj.Logic
 
         public static bool DeleteSingleItem(int id)
         {
-
             foreach(var c in Items)
             {
                 if (c.ItemId == id)
                 {
-                    Items.RemoveAt(id);             
-
+                    Items.RemoveAt(id);
                     return true;
                 }              
             }
             return false;
         }
 
+        public static ItemLogic FindItem(List<ItemLogic> Items, string searchItem)
         public static bool DeleteAllItems()
         {
+
+           return Items.Find(x => x.ItemName.Contains(searchItem));
+
+        }
             Items.Clear();
             if(Items.Count == 0)
             {
