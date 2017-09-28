@@ -165,11 +165,28 @@ namespace pizzzproj.Test
 
         }
 
-        public void CheckType()
+        [Fact]
+        public void NonNegativeAddMultipleItems()
         {
-            int i = 4;
+            List<ItemLogic> Items = new List<ItemLogic>();
+            var uno = new ItemLogic { ItemId = 1, ItemName = "Pepperoni", ItemSize = "Large" };
+            var dos = new ItemLogic { ItemId = 2, ItemName = "Meat Lovers", ItemSize = "Small" };
 
+            Items.Add(uno);
+            Items.Add(dos);
+
+            var tres = new ItemLogic { ItemId = 3, ItemName = "Tequila", ItemSize = "XXXXXXXXL" };
+            var i = -3;
+            var check = 3;
+
+
+            var actual = ItemLogic.AddMultipleItems(Items, tres, i);
+
+            Assert.NotEqual(i, check);
             
+
         }
+
+
     }
 }

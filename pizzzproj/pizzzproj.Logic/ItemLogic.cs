@@ -73,6 +73,7 @@ namespace pizzzproj.Logic
 
         public static List<ItemLogic> AddMultipleItems(List<ItemLogic> Items, ItemLogic CItem, int HowMany)
         {
+          
         
             for(int i = 0; i < HowMany; i++)
             {
@@ -81,9 +82,12 @@ namespace pizzzproj.Logic
             }
             return Items;
         }
+        public void intOrNah(int i)
+        {
+            try
+            {
 
-        
-
-        
+            }
+        }
     }
 }
