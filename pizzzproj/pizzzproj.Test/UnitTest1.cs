@@ -95,5 +95,44 @@ namespace pizzzproj.Test
             Assert.NotEqual(tres.ItemName, search);
 
         }
+
+        [Fact]
+        public void OrderIsEmpty()
+        {
+            List<ItemLogic> Items = new List<ItemLogic>();
+
+            var actual = ItemLogic.OrderEmpty(Items);
+
+            Assert.True(actual);
+        }
+
+        [Fact]
+        public void OrderIsNotEmpty()
+        {
+            List<ItemLogic> Items = new List<ItemLogic>();
+            var uno = new ItemLogic { ItemId = 1, ItemName = "Pepperoni", ItemSize = "Large" };
+            var dos = new ItemLogic { ItemId = 2, ItemName = "Meat Lovers", ItemSize = "Small" };
+            var tres = new ItemLogic { ItemId = 3, ItemName = "Tequila", ItemSize = "XXXXXXXXL" };
+
+            Items.Add(uno);
+            Items.Add(dos);
+            Items.Add(tres);
+
+
+            var actual = ItemLogic.OrderEmpty(Items);
+
+            Assert.False(actual);
+        }
+
+        [Fact]
+        public void EditSizeItem()
+        {
+            var uno = new ItemLogic { ItemId = 1, ItemName = "Pepperoni", ItemSize = "Large" };
+            var newSize = "XXXXL";
+
+            var actual = ItemLogic.EditOrderItemSize(uno, newSize);
+
+            Assert.Equal(actual.ItemSize, uno.ItemSize);
+        }
     }
 }

@@ -64,5 +64,13 @@ namespace pizzzproj.Logic
             }
                 return false;
         }
+
+        public static ItemLogic EditOrderItemSize(ItemLogic Item, string size)
+        {
+            Item.ItemSize = size;
+            return Item;
+        }
+
+        
     }
 }
