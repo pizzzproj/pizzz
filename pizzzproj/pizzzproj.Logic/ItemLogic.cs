@@ -5,7 +5,7 @@ using pizzzproj.Data.Helper;
 
 namespace pizzzproj.Logic
 {
-    class ItemLogic
+    public class ItemLogic
     {
         public int ItemId { get; set; }
         public string ItemName { get; set; }
