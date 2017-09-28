@@ -38,6 +38,17 @@ namespace pizzzproj.Logic
             return false;
         }
 
+        public static bool DeleteAllItems()
+        {
+
+            Items.Clear();
+            if(Items.Count == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public static ItemLogic FindItem(List<ItemLogic> Items, string searchItem)
         {
 
