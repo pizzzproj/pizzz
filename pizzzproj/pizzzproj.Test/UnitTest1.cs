@@ -2,6 +2,7 @@ using pizzzproj.Data.Helper;
 using System;
 using Xunit;
 using pizzzproj.Logic;
+using System.Collections.Generic;
 
 namespace pizzzproj.Test
 {
@@ -30,6 +31,46 @@ namespace pizzzproj.Test
             Assert.Equal(actual.SideId, i.SideId);
             Assert.Equal(actual.SideName, i.SideName);
             Assert.Equal(actual.SideSize, i.SideSize);
+        }
+
+        [Fact]
+        public void FindItem()
+        {
+            var search = "Pepperoni";
+            List<ItemLogic> Items = new List<ItemLogic>();
+            var uno = new ItemLogic {ItemId = 1, ItemName = "Pepperoni", ItemSize = "Large" };
+            var dos = new ItemLogic { ItemId = 2, ItemName = "Meat Lovers", ItemSize = "Small" };
+            var tres = new ItemLogic { ItemId = 3, ItemName = "Tequila", ItemSize = "XXXXXXXXL" };
+
+            Items.Add(uno);
+            Items.Add(dos);
+            Items.Add(tres);
+
+            var actual = ItemLogic.FindItem(Items, search);
+
+            Assert.Equal(uno.ItemName, search);
+
+        }
+
+        [Fact]
+        public void CantFindItem()
+        {
+            var search = "Coors";
+            List<ItemLogic> Items = new List<ItemLogic>();
+            var uno = new ItemLogic { ItemId = 1, ItemName = "Pepperoni", ItemSize = "Large" };
+            var dos = new ItemLogic { ItemId = 2, ItemName = "Meat Lovers", ItemSize = "Small" };
+            var tres = new ItemLogic { ItemId = 3, ItemName = "Tequila", ItemSize = "XXXXXXXXL" };
+
+            Items.Add(uno);
+            Items.Add(dos);
+            Items.Add(tres);
+
+            var actual = ItemLogic.FindItem(Items, search);
+
+            Assert.NotEqual(uno.ItemName, search);
+            Assert.NotEqual(dos.ItemName, search);
+            Assert.NotEqual(tres.ItemName, search);
+
         }
     }
 }
