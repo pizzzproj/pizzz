@@ -71,6 +71,19 @@ namespace pizzzproj.Logic
             return Item;
         }
 
+        public static List<ItemLogic> AddMultipleItems(List<ItemLogic> Items, ItemLogic CItem, int HowMany)
+        {
+        
+            for(int i = 0; i < HowMany; i++)
+            {
+                CItem.ItemId++;
+                Items.Add(CItem);
+            }
+            return Items;
+        }
+
+        
+
         
     }
 }

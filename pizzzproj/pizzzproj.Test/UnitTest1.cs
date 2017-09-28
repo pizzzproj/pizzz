@@ -134,5 +134,42 @@ namespace pizzzproj.Test
 
             Assert.Equal(actual.ItemSize, uno.ItemSize);
         }
+
+        [Fact]
+        public void AddSameItems()
+        {
+            List<ItemLogic> Items = new List<ItemLogic>();
+            var uno = new ItemLogic { ItemId = 1, ItemName = "Pepperoni", ItemSize = "Large" };
+            var dos = new ItemLogic { ItemId = 2, ItemName = "Meat Lovers", ItemSize = "Small" };
+
+            Items.Add(uno);
+            Items.Add(dos);
+
+            var tres = new ItemLogic { ItemId = 3, ItemName = "Tequila", ItemSize = "XXXXXXXXL" };
+            var i = 3;
+
+
+            var actual = ItemLogic.AddMultipleItems(Items, tres, i);
+
+            Assert.Equal(actual[2].ItemId, tres.ItemId);
+            Assert.Equal(actual[3].ItemId, tres.ItemId);
+            Assert.Equal(actual[4].ItemId, tres.ItemId);
+
+            Assert.Equal(actual[2].ItemName, tres.ItemName);
+            Assert.Equal(actual[3].ItemName, tres.ItemName);
+            Assert.Equal(actual[4].ItemName, tres.ItemName);
+
+            Assert.Equal(actual[2].ItemSize, tres.ItemSize);
+            Assert.Equal(actual[3].ItemSize, tres.ItemSize);
+            Assert.Equal(actual[4].ItemSize, tres.ItemSize);
+
+        }
+
+        public void CheckType()
+        {
+            int i = 4;
+
+            
+        }
     }
 }
