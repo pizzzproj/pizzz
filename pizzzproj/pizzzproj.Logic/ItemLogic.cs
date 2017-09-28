@@ -47,13 +47,9 @@ namespace pizzzproj.Logic
             {
                 return true;
             }
-            return false;
+            return false; 
         }        
 
-        public static ItemLogic FindItem(List<ItemLogic> Items, string searchItem)
-        {
-            return Items.Find(x => x.ItemName.Contains(searchItem));
-        }
 
     }
 }
