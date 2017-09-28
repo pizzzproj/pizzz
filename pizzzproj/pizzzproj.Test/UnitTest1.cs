@@ -187,6 +187,28 @@ namespace pizzzproj.Test
 
         }
 
+        [Fact]
+        public void ZeroAddMultipleItems()
+        {
+            List<ItemLogic> Items = new List<ItemLogic>();
+            var uno = new ItemLogic { ItemId = 1, ItemName = "Pepperoni", ItemSize = "Large" };
+            var dos = new ItemLogic { ItemId = 2, ItemName = "Meat Lovers", ItemSize = "Small" };
+
+            Items.Add(uno);
+            Items.Add(dos);
+
+            var tres = new ItemLogic { ItemId = 3, ItemName = "Tequila", ItemSize = "XXXXXXXXL" };
+            var i = 0;
+            var check = 3;
+
+
+            var actual = ItemLogic.AddMultipleItems(Items, tres, i);
+
+            Assert.NotEqual(i, check);
+
+
+        }
+
 
     }
 }
