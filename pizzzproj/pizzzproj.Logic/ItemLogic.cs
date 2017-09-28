@@ -56,5 +56,13 @@ namespace pizzzproj.Logic
 
         }
 
+        public static bool OrderEmpty(List<ItemLogic> Items)
+        {
+            if(Items.Count == 0)
+            {
+                return true;
+            }
+                return false;
+        }
     }
 }
