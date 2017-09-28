@@ -5,7 +5,7 @@ using pizzzproj.Data.Helper;
 
 namespace pizzzproj.Logic
 {
-    class ItemLogic
+    public class ItemLogic
     {
         public int ItemId { get; set; }
         public string ItemName { get; set; }
@@ -38,14 +38,18 @@ namespace pizzzproj.Logic
             return false;
         }
 
-        public bool DeleteAllItems()
+        public static ItemLogic FindItem(List<ItemLogic> Items, ItemLogic searchItem)
         {
-            Items.Clear();
-            if(Items.Any())
+            
+            if (Items.Count == 1)
             {
-                return false;
+                return Items[0];
             }
-            return true;
+            else
+            {
+                searchItem = Items.Find(item => item == searchItem);
+                return searchItem;
+            }
         }
 
     }
