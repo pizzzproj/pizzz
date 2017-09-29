@@ -10,6 +10,5 @@ namespace pizzzproj.LogicDTO.Models
         public int ItemId { get; set; }
         public string ItemName { get; set; }
         public string ItemSize { get; set; }
-        public static List<Item> Items = new List<Item>();
     }
 }
