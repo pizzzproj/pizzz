@@ -1,5 +1,4 @@
-﻿using pizzzproj.Data.Helper;
-using pizzzproj.Data;
+﻿using pizzzproj.Logic.Helper;
 using System;
 using System.Collections.Generic;
 using System.Text;

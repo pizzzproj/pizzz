@@ -1,7 +1,7 @@
-﻿using System;
+﻿using pizzzproj.Logic.Helper;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using pizzzproj.Data.Helper;
 
 namespace pizzzproj.Logic
 {
@@ -12,7 +12,7 @@ namespace pizzzproj.Logic
         public string ItemSize { get; set; }
         public static List<ItemLogic> Items = new List<ItemLogic>();
 
-        public static ItemLogic AddItem(Item item)
+        public static ItemLogic AddItem(ItemLogic item)
         {
             var addItem = new ItemLogic()
             {

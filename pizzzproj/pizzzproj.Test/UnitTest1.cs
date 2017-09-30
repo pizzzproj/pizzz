@@ -1,4 +1,5 @@
-using pizzzproj.Data.Helper;
+using pizzzproj.Logic.Helper;
+using pizzzproj.Logic;
 using System;
 using Xunit;
 using pizzzproj.Logic;
@@ -11,7 +12,7 @@ namespace pizzzproj.Test
         [Fact]
         public void Test1()
         {
-            
+
             var i = new Pizza() { PizzaId = 1, PizzaName = "Cheese", PizzaSizeId = "small" };
 
             var actual = OrderPizzaLogic.AddPizza(i);
@@ -26,9 +27,9 @@ namespace pizzzproj.Test
         public void Test2()
 
         {
-            var i = new Item() { ItemId = 1, ItemName = "Pizza", ItemSize = "Huge" };
+            var i = new ItemLogic() { ItemId = 1, ItemName = "Pizza", ItemSize = "Huge" };
 
-            var i1 = new Item() { ItemId = 2, ItemName = "Pizza", ItemSize = "big" };
+            var i1 = new ItemLogic() { ItemId = 2, ItemName = "Pizza", ItemSize = "big" };
 
             var m = ItemLogic.AddItem(i);
 
@@ -44,7 +45,7 @@ namespace pizzzproj.Test
         public void Test3()
 
         {
-            var i = new Item() { ItemId = 1, ItemName = "Pizza", ItemSize = "small" };
+            var i = new ItemLogic() { ItemId = 1, ItemName = "Pizza", ItemSize = "small" };
 
             var m = ItemLogic.AddItem(i);
 
@@ -61,7 +62,7 @@ namespace pizzzproj.Test
         {
             var search = "Pepperoni";
             List<ItemLogic> Items = new List<ItemLogic>();
-            var uno = new ItemLogic {ItemId = 1, ItemName = "Pepperoni", ItemSize = "Large" };
+            var uno = new ItemLogic { ItemId = 1, ItemName = "Pepperoni", ItemSize = "Large" };
             var dos = new ItemLogic { ItemId = 2, ItemName = "Meat Lovers", ItemSize = "Small" };
             var tres = new ItemLogic { ItemId = 3, ItemName = "Tequila", ItemSize = "XXXXXXXXL" };
 
@@ -162,28 +163,6 @@ namespace pizzzproj.Test
             Assert.Equal(actual[2].ItemSize, tres.ItemSize);
             Assert.Equal(actual[3].ItemSize, tres.ItemSize);
             Assert.Equal(actual[4].ItemSize, tres.ItemSize);
-
-        }
-
-        [Fact]
-        public void NonNegativeAddMultipleItems()
-        {
-            List<ItemLogic> Items = new List<ItemLogic>();
-            var uno = new ItemLogic { ItemId = 1, ItemName = "Pepperoni", ItemSize = "Large" };
-            var dos = new ItemLogic { ItemId = 2, ItemName = "Meat Lovers", ItemSize = "Small" };
-
-            Items.Add(uno);
-            Items.Add(dos);
-
-            var tres = new ItemLogic { ItemId = 3, ItemName = "Tequila", ItemSize = "XXXXXXXXL" };
-            var i = -3;
-            var check = 3;
-
-
-            var actual = ItemLogic.AddMultipleItems(Items, tres, i);
-
-            Assert.NotEqual(i, check);
-            
 
         }
 

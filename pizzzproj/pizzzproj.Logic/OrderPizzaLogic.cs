@@ -1,5 +1,5 @@
-﻿using pizzzproj.Data.Helper;
-using pizzzproj.Data;
+﻿using pizzzproj.Logic.Helper;
+using pizzzproj.Logic;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,9 +25,9 @@ namespace pizzzproj.Logic
 
             Pizzas.Add(addPizza);
 
-            return addPizza;            
+            return addPizza;
         }
 
-      
+
     }
 }
