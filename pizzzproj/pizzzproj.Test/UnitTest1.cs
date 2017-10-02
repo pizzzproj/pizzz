@@ -119,7 +119,6 @@ namespace pizzzproj.Test
             Items.Add(dos);
             Items.Add(tres);
 
-
             var actual = ItemLogic.OrderEmpty(Items);
 
             Assert.False(actual);
