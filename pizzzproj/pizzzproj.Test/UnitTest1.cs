@@ -187,6 +187,17 @@ namespace pizzzproj.Test
 
         }
 
+        [Fact]
+        public void AddOrderPrice()
+        {
+            var initial = 4.55;
+            var newPrice = 16.45;
+
+            var actual = ItemLogic.OrderTotal(initial, newPrice);
+
+            Assert.Equal(actual, 21);
+        }
+
 
     }
 }
