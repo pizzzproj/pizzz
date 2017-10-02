@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:62372/",
+      "applicationUrl": "http://localhost:59442/",
       "sslPort": 0
     }
   },
@@ -16,14 +16,15 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "pizzzproj.LogicDTO": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "api/values",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:62373/"
-    }
+			"pizzzproj.LogicDTO": {
+				"commandName": "Project",
+				"launchBrowser": true,
+				"launchUrl": "api/values",
+				"environmentVariables": {
+					"ASPNETCORE_ENVIRONMENT": "Development"
+				},
+				"applicationUrl": "http://localhost:59442/"
+				//62373
+			}
   }
 }
