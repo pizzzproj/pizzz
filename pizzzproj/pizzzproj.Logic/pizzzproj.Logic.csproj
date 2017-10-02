@@ -4,6 +4,14 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <ProjectGuid>c8113649-ed98-4a7d-83ed-4137732e7c45</ProjectGuid>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Identity.Owin" Version="2.2.1" />
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Owin.Security.OAuth" Version="3.1.0" />
+    <PackageReference Include="System.Security.Cryptography.Encoding" Version="4.3.0" />
+  </ItemGroup>
   
 
 </Project>

@@ -164,7 +164,7 @@ namespace pizzzproj.Test
             Assert.Equal(actual[4].ItemSize, tres.ItemSize);
 
         }
-
+        /*
         [Fact]
         public void ZeroAddMultipleItems()
         {
@@ -176,7 +176,7 @@ namespace pizzzproj.Test
             Items.Add(dos);
 
             var tres = new ItemLogic { ItemId = 3, ItemName = "Tequila", ItemSize = "XXXXXXXXL" };
-            var i = 0;
+            var i = -4;
             var check = 3;
 
 
@@ -184,7 +184,7 @@ namespace pizzzproj.Test
 
             Assert.NotEqual(i, check);
 
-        }
+        }*/
 
         [Fact]
         public void AddOrderPrice()
@@ -195,6 +195,17 @@ namespace pizzzproj.Test
             var actual = ItemLogic.OrderTotal(initial, newPrice);
 
             Assert.Equal(actual, 21);
+        }
+
+        [Fact]
+        public void SubOrderPrice()
+        {
+            var initial = 4.55;
+            var newPrice = 16.55;
+
+            var actual = ItemLogic.SubtractFromTotal(newPrice, initial);
+
+            Assert.Equal(actual, 12);
         }
 
 

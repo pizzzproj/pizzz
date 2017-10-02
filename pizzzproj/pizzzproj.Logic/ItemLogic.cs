@@ -78,7 +78,7 @@ namespace pizzzproj.Logic
                 throw new ArgumentException("Quantity input is incorrect");
             }
 
-            HowMany = Convert.ToInt32(HowMany);
+            //HowMany = Convert.ToInt32(HowMany);
 
             for (int i = 0; i < HowMany; i++)
             {
@@ -92,6 +92,11 @@ namespace pizzzproj.Logic
         public static double OrderTotal(double initialTotal, double newPrice)
         {
             return initialTotal + newPrice;
+        }
+
+        public static double SubtractFromTotal(double initialTotal, double subtractPrice)
+        {
+            return initialTotal - subtractPrice;
         }
     }
 }
