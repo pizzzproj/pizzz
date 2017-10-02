@@ -73,10 +73,12 @@ namespace pizzzproj.Logic
 
         public static List<ItemLogic> AddMultipleItems(List<ItemLogic> Items, ItemLogic CItem, int HowMany)
         {
-          if(HowMany <= 0  ||  HowMany % 2 != 0)
+          if(HowMany <= 0)
             {
                 throw new ArgumentException("Quantity input is incorrect");
             }
+
+            HowMany = Convert.ToInt32(HowMany);
         
             for(int i = 0; i < HowMany; i++)
             {
