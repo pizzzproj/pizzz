@@ -10,5 +10,6 @@ namespace pizzzproj.LogicDTO.Models
         public int ItemId { get; set; }
         public string ItemName { get; set; }
         public string ItemSize { get; set; }
+        public decimal ItemPrice { get; set; }
     }
 }
