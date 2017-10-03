@@ -16,28 +16,7 @@ namespace pizzzproj.LogicDTO.Controllers
     [Route("api/Item")]
     public class ItemController : Controller
     {
-        // GET: api/Item
-        [HttpGet]
-        public IEnumerable<Item> Get()
-        {
-            Response.StatusCode = (int)HttpStatusCode.OK;
 
-            return new List<Item>()
-            {
-                new Item() { ItemId = 1, ItemName = "Pizza", ItemSize = "Large"},
-                new Item() { ItemId = 2, ItemName = "Beer", ItemSize = "XL"},
-                new Item() { ItemId = 3, ItemName = "Wings", ItemSize = "Family"}
-            };
-        }
-
-        // GET: api/Item/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-        
-        
         // POST: api/Item
         /*
         [HttpPost]
@@ -58,6 +37,7 @@ namespace pizzzproj.LogicDTO.Controllers
             }
         }
         */
+        
 
         [HttpGet]
         public decimal PizzaGetPrice(int i)
@@ -75,6 +55,25 @@ namespace pizzzproj.LogicDTO.Controllers
             }
             return 0;
         }
+
+        [HttpGet]
+        public Item GetMenu()
+        {
+            HttpClient orderclient = new HttpClient();
+
+            var res = orderclient.GetAsync("http://localhost:58080/api/getmenu/").GetAwaiter().GetResult();
+
+            if (res.IsSuccessStatusCode)
+            {
+                var json = res.Content.ReadAsStringAsync().Result;
+                var driver = JsonConvert.DeserializeObject<Item>(json);
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return driver;
+            }
+            return null;
+        }
+
+
 
         // PUT: api/Item/5
         [HttpPut("{id}")]
