@@ -17,15 +17,14 @@ namespace pizzzproj.LogicDTO.Controllers
     public class ItemController : Controller
     {
 
-        // POST: api/Item
-        /*
+        
         [HttpPost]
-        public void PizzaPost([FromBody]int id)
+        public void NewItemPost([FromBody]Item item)
         {
             HttpClient pizzclient = new HttpClient();
-            var yo = JsonConvert.SerializeObject(id);
+            var yo = JsonConvert.SerializeObject(item);
             var body = new StringContent(yo, Encoding.UTF32, "application/json");
-            var res = pizzclient.GetAsync("http://localhost:58080/api/menuitemprice/", body).GetAwaiter().GetResult();
+            var res = pizzclient.GetAsync("http://localhost:58080/api/getmenu/", body).GetAwaiter().GetResult();
 
             if(res.IsSuccessStatusCode)
             {
@@ -36,7 +35,7 @@ namespace pizzzproj.LogicDTO.Controllers
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
             }
         }
-        */
+        
         
 
         [HttpGet]
