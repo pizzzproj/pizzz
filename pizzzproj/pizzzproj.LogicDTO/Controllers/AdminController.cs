@@ -17,16 +17,16 @@ namespace pizzzproj.LogicDTO.Controllers
     public class AdminController : Controller
     {
         // GET: api/Admin
-        /*
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }*/
+
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
         // GET: api/Admin/5
         [HttpGet]
-        public Admin Get(int id)
+        public Admin GetAdmin(int id)
         {
             HttpClient httpClient = new HttpClient();
 

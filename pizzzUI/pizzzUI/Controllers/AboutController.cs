@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using pizzzproj.Models;
+using pizzzUI.Models;
 
 namespace pizzzproj.Controllers
 {
