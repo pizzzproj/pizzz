@@ -7,7 +7,8 @@ using pizzzadata.Data.Models;
 
 namespace pizzzadata.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Produces("application/json")]
+    [Route("pizzzadata/api/[controller]")]
     public class MenuItemPriceController : Controller
     {
         private readonly PizzzaDatabaseContext _context;

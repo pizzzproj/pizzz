@@ -9,6 +9,7 @@ namespace pizzzadata.Data.Models
         public virtual DbSet<ItemSize> ItemSize { get; set; }
         public virtual DbSet<MenuItem> MenuItem { get; set; }
         public virtual DbSet<MenuItemPrice> MenuItemPrice { get; set; }
+        public virtual DbSet<PizzzaAdmin> PizzzaAdmin { get; set; }
 
         public PizzzaDatabaseContext(DbContextOptions<PizzzaDatabaseContext> options) : base(options)
         { }
@@ -60,6 +61,31 @@ namespace pizzzadata.Data.Models
                     .HasForeignKey(d => d.SizeId)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_MenuItemPrice_ItemSizes");
+            });
+
+            modelBuilder.Entity<PizzzaAdmin>(entity =>
+            {
+                entity.HasKey(e => e.AdminId);
+
+                entity.Property(e => e.AdminId).HasColumnName("AdminID");
+
+                entity.Property(e => e.AdminPassword)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fname)
+                    .HasColumnName("FName")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Lname)
+                    .HasColumnName("LName")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Username)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
             });
         }
     }
