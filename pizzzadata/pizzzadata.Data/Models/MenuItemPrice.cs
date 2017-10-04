@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace pizzzadata.Models
+namespace pizzzadata.Data.Models
 {
     public partial class MenuItemPrice
     {
@@ -10,7 +10,7 @@ namespace pizzzadata.Models
         public int? SizeId { get; set; }
         public decimal? Price { get; set; }
 
-        public MenuItems Menu { get; set; }
-        public ItemSizes Size { get; set; }
+        public MenuItem Menu { get; set; }
+        public ItemSize Size { get; set; }
     }
 }

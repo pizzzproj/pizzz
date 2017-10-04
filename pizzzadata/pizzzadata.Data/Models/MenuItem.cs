@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace pizzzadata.Models
+namespace pizzzadata.Data.Models
 {
-    public partial class MenuItems
+    public partial class MenuItem
     {
-        public MenuItems()
+        public MenuItem()
         {
             MenuItemPrice = new HashSet<MenuItemPrice>();
         }

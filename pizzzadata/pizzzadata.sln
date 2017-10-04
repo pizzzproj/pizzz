@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pizzzadata", "pizzzadata\pizzzadata.csproj", "{23A9DBEC-5A7F-4A1B-BC91-D8E48908DC3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pizzzadata.API", "pizzzadata.API\pizzzadata.API.csproj", "{5648CFAE-D8A4-47FE-9773-6C3CDE3A7491}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pizzzadata.Data", "pizzzadata.Data\pizzzadata.Data.csproj", "{07590237-060A-4BF0-92C7-F26DD2328D79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{23A9DBEC-5A7F-4A1B-BC91-D8E48908DC3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23A9DBEC-5A7F-4A1B-BC91-D8E48908DC3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23A9DBEC-5A7F-4A1B-BC91-D8E48908DC3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23A9DBEC-5A7F-4A1B-BC91-D8E48908DC3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5648CFAE-D8A4-47FE-9773-6C3CDE3A7491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5648CFAE-D8A4-47FE-9773-6C3CDE3A7491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5648CFAE-D8A4-47FE-9773-6C3CDE3A7491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5648CFAE-D8A4-47FE-9773-6C3CDE3A7491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07590237-060A-4BF0-92C7-F26DD2328D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07590237-060A-4BF0-92C7-F26DD2328D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07590237-060A-4BF0-92C7-F26DD2328D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07590237-060A-4BF0-92C7-F26DD2328D79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

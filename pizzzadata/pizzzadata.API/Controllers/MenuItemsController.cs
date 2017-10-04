@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using pizzzadata.Data.Models;
 
-namespace pizzzadata.Controllers
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace pizzzadata.API.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class MenuItemsController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly PizzzaDatabaseContext _context;
+
+        public MenuItemsController(PizzzaDatabaseContext context)
         {
-            return new string[] { "value1", "value2" };
+            _context = context;
         }
 
-        // GET api/values/5
+        // GET api/menuitems/id
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var menuItem = _context.MenuItem.FirstOrDefault(z => z.MenuId == id);
+
+            return new ObjectResult(menuItem);
         }
 
         // POST api/values
