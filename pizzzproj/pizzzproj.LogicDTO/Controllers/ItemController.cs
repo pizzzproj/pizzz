@@ -76,7 +76,7 @@ namespace pizzzproj.LogicDTO.Controllers
         public Item GetItem(int id)
         {
             HttpClient httpClient = new HttpClient();
-            var res = httpClient.GetAsync("http://localhost:58080/api/menuitemprice/" + id).GetAwaiter().GetResult();
+            var res = httpClient.GetAsync("http://localhost:58080/api/addName/" + id).GetAwaiter().GetResult();
 
             if(res.IsSuccessStatusCode)
             {
