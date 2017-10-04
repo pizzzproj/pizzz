@@ -51,9 +51,7 @@ namespace pizzzproj.Logic
 
         public static ItemLogic FindItem(List<ItemLogic> Items, string searchItem)
         {
-
            return Items.Find(x => x.ItemName.Contains(searchItem));
-
         }
 
         public static bool OrderEmpty(List<ItemLogic> Items)

@@ -2,7 +2,6 @@ using pizzzproj.Logic.Helper;
 using pizzzproj.Logic;
 using System;
 using Xunit;
-using pizzzproj.Logic;
 using System.Collections.Generic;
 
 namespace pizzzproj.Test
@@ -103,7 +102,7 @@ namespace pizzzproj.Test
             List<ItemLogic> Items = new List<ItemLogic>();
 
             var actual = ItemLogic.OrderEmpty(Items);
-
+ 
             Assert.True(actual);
         }
 
