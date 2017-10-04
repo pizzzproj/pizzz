@@ -24,7 +24,7 @@ namespace pizzzproj.LogicDTO.Controllers
             HttpClient pizzclient = new HttpClient();
             var yo = JsonConvert.SerializeObject(item);
             var body = new StringContent(yo, Encoding.UTF32, "application/json");
-            var res = pizzclient.GetAsync("http://localhost:58080/api/getmenu/", body).GetAwaiter().GetResult();
+            var res = pizzclient.PostAsync("http://localhost:58080/api/getmenu/", body).GetAwaiter().GetResult();
 
             if(res.IsSuccessStatusCode)
             {
