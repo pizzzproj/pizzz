@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace pizzzadata.Models
 {
-    public partial class ItemSizes
+    public partial class ItemSize
     {
-        public ItemSizes()
+        public ItemSize()
         {
             MenuItemPrice = new HashSet<MenuItemPrice>();
         }
