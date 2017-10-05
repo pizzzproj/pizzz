@@ -2,32 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-
-
 namespace pizzzadata.Models
 {
-    /*class Order
+    public partial class PizzzaDatabaseContext : DbContext
     {
-        string Size { get; set; }
-        string Item { get; set; }
-    }*/
-
-    public partial class pizzzaDatabaseContext : DbContext
-    {
-        public virtual DbSet<ItemSize> ItemSizes { get; set; }
+        public virtual DbSet<ItemSize> ItemSize { get; set; }
+        public virtual DbSet<MenuItem> MenuItem { get; set; }
         public virtual DbSet<MenuItemPrice> MenuItemPrice { get; set; }
-        public virtual DbSet<MenuItem> MenuItems { get; set; }
+        public virtual DbSet<PizzzaAdmin> PizzzaAdmin { get; set; }
 
-        /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-         {
-             if (!optionsBuilder.IsConfigured)
-             {
- #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                 optionsBuilder.UseSqlServer(@"Server=tcp:sqlweek1-elijah.database.windows.net,1433;Initial Catalog=pizzzaDatabase;Persist Security Info=False;User ID=sqladmin_elijah;Password=8Vdh17boc8@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-             }
-         }*/
-
-        public pizzzaDatabaseContext(DbContextOptions<pizzzaDatabaseContext> options) : base(options)
+        public PizzzaDatabaseContext(DbContextOptions<PizzzaDatabaseContext> options) : base(options)
         { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -44,7 +28,17 @@ namespace pizzzadata.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<MenuItem>(entity =>
+            {
+                entity.HasKey(e => e.MenuId);
 
+                entity.Property(e => e.MenuId).HasColumnName("MenuID");
+
+                entity.Property(e => e.Item)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+            });
 
             modelBuilder.Entity<MenuItemPrice>(entity =>
             {
@@ -69,15 +63,28 @@ namespace pizzzadata.Models
                     .HasConstraintName("FK_MenuItemPrice_ItemSizes");
             });
 
-            modelBuilder.Entity<MenuItem>(entity =>
+            modelBuilder.Entity<PizzzaAdmin>(entity =>
             {
-                entity.HasKey(e => e.MenuId);
+                entity.HasKey(e => e.AdminId);
 
-                entity.Property(e => e.MenuId).HasColumnName("MenuID");
+                entity.Property(e => e.AdminId).HasColumnName("AdminID");
 
-                entity.Property(e => e.Item)
-                    .IsRequired()
-                    .HasMaxLength(30)
+                entity.Property(e => e.AdminPassword)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fname)
+                    .HasColumnName("FName")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Lname)
+                    .HasColumnName("LName")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Username)
+                    .HasMaxLength(20)
                     .IsUnicode(false);
             });
         }

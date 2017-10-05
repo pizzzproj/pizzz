@@ -4,12 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace pizzzadata.Controllers
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace pizzzadata.API.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [Produces("application/json")]
+    [Route("pizzzadata/api/[controller]")]
+    public class MenuItemController : Controller
     {
-        // GET api/values
+        // GET: api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
