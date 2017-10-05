@@ -13,7 +13,7 @@ using System.Text;
 namespace pizzzproj.LogicDTO.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Item")]
+    [Route("pizzza/Item")]
     public class ItemController : Controller
     {
 
@@ -43,7 +43,7 @@ namespace pizzzproj.LogicDTO.Controllers
         {
             HttpClient pizzclient = new HttpClient();
 
-            var res = pizzclient.GetAsync("http://localhost:58080/api/menuitemprice/" + i).GetAwaiter().GetResult();
+            var res = pizzclient.GetAsync("http://localhost:58080/pizzzadata/api/menuitemprice/" + i).GetAwaiter().GetResult();
 
             if(res.IsSuccessStatusCode)
             {
@@ -60,7 +60,7 @@ namespace pizzzproj.LogicDTO.Controllers
         {
             HttpClient orderclient = new HttpClient();
 
-            var res = orderclient.GetAsync("http://localhost:58080/api/getmenu/").GetAwaiter().GetResult();
+            var res = orderclient.GetAsync("http://localhost:58080/pizzzadata/api/menu/").GetAwaiter().GetResult();
 
             if (res.IsSuccessStatusCode)
             {
@@ -76,7 +76,7 @@ namespace pizzzproj.LogicDTO.Controllers
         public Item GetItem(int id)
         {
             HttpClient httpClient = new HttpClient();
-            var res = httpClient.GetAsync("http://localhost:58080/api/addName/" + id).GetAwaiter().GetResult();
+            var res = httpClient.GetAsync("http://localhost:58080/pizzzadata/api/menuitem/" + id).GetAwaiter().GetResult();
 
             if(res.IsSuccessStatusCode)
             {

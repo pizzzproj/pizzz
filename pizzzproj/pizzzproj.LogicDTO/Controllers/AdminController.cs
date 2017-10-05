@@ -13,24 +13,17 @@ using System.Net;
 namespace pizzzproj.LogicDTO.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Admin")]
+    [Route("pizzza/Admin")]
     public class AdminController : Controller
     {
-        // GET: api/Admin
-        /*
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }*/
 
-        // GET: api/Admin/5
+        // GET: pizzza/Admin/get/5
         [HttpGet]
         public Admin Get(int id)
         {
             HttpClient httpClient = new HttpClient();
 
-            var res = httpClient.GetAsync("http://localhost:58080/api/getadmin/" + id).GetAwaiter().GetResult();
+            var res = httpClient.GetAsync("http://localhost:58080/pizzzadata/api/getadmin/" + id).GetAwaiter().GetResult();
 
             if(res.IsSuccessStatusCode)
             {
@@ -42,11 +35,12 @@ namespace pizzzproj.LogicDTO.Controllers
             return null;
         }
 
+        // DELETE: pizzza/Admin/delete/5
         [HttpDelete]
         public void Delete(int id)
         {
             HttpClient httpClient = new HttpClient();
-            var res = httpClient.DeleteAsync("Achintya's local host/api/delete" + id).GetAwaiter().GetResult();
+            var res = httpClient.DeleteAsync("http://localhost:58080/pizzzadata/api/deleteadmin/" + id).GetAwaiter().GetResult();
 
             if(res.IsSuccessStatusCode)
             {
@@ -58,6 +52,7 @@ namespace pizzzproj.LogicDTO.Controllers
             }
         }
 
+        // PUT: pizzza/Admin/NewPricePut/{item}/5
         [HttpPut]
         public void NewPricePut([FromBody]Item item, decimal newPrice)
         {
@@ -65,7 +60,7 @@ namespace pizzzproj.LogicDTO.Controllers
             HttpClient adminClient = new HttpClient();
             var oy = JsonConvert.SerializeObject(item);
             var body = new StringContent(oy, Encoding.UTF8, "application/json");
-            var res = adminClient.PutAsync("http://localhost:58080/api/getmenu/", body).GetAwaiter().GetResult();
+            var res = adminClient.PutAsync("http://localhost:58080/pizzzadata/api/newpriceput/", body).GetAwaiter().GetResult();
 
             if (res.IsSuccessStatusCode)
             {
@@ -77,7 +72,7 @@ namespace pizzzproj.LogicDTO.Controllers
             }
         }
 
-        // POST: api/Admin
+        // Put: pizzza/Admin/NewNamePut/{item}/{name}
         [HttpPut]
         public void NewNamePut([FromBody]Item item, string newName)
         {
@@ -85,7 +80,7 @@ namespace pizzzproj.LogicDTO.Controllers
             HttpClient adminClient = new HttpClient();
             var oy = JsonConvert.SerializeObject(item);
             var body = new StringContent(oy, Encoding.UTF8, "application/json");
-            var res = adminClient.PutAsync("http://localhost:58080/api/getmenu/", body).GetAwaiter().GetResult();
+            var res = adminClient.PutAsync("http://localhost:58080/pizzzadata/api/newnameput/", body).GetAwaiter().GetResult();
 
             if(res.IsSuccessStatusCode)
             {
@@ -97,13 +92,14 @@ namespace pizzzproj.LogicDTO.Controllers
             }
         }
 
+        // POST: pizzza/Admin/NewItemPost/{item}
         [HttpPost]
         public void NewItemPost([FromBody]Item item)
         {
             HttpClient pizzclient = new HttpClient();
             var yo = JsonConvert.SerializeObject(item);
             var body = new StringContent(yo, Encoding.UTF8, "application/json");
-            var res = pizzclient.PostAsync("http://localhost:58080/api/TBD/", body).GetAwaiter().GetResult();
+            var res = pizzclient.PostAsync("http://localhost:58080/pizzzadata/api/TBD/", body).GetAwaiter().GetResult();
 
             if (res.IsSuccessStatusCode)
             {
@@ -120,8 +116,8 @@ namespace pizzzproj.LogicDTO.Controllers
         public void Put(int id, [FromBody] string value)
         {
         }
-        
-        // DELETE: api/ApiWithActions/5
+
+        // DELETE: pizzza/Admin/ItemDelete/5/{item}
         [HttpDelete("{id}")]
         public void ItemDelete(int id, [FromBody] Item item)
         {
@@ -129,7 +125,7 @@ namespace pizzzproj.LogicDTO.Controllers
             HttpClient httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(id);
             var body = new StringContent(json, Encoding.UTF8, "application/json");
-            var res = httpClient.DeleteAsync("http://localhost:58080/api/itemdelete/{0}" + id).GetAwaiter().GetResult();
+            var res = httpClient.DeleteAsync("http://localhost:58080/pizzzadata/api/itemdelete/{0}" + id).GetAwaiter().GetResult();
         }        
     }
 }
