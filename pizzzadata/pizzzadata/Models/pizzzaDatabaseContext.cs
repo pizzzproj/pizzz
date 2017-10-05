@@ -6,11 +6,17 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace pizzzadata.Models
 {
+    /*class Order
+    {
+        string Size { get; set; }
+        string Item { get; set; }
+    }*/
+
     public partial class pizzzaDatabaseContext : DbContext
     {
-        public virtual DbSet<ItemSizes> ItemSizes { get; set; }
+        public virtual DbSet<ItemSize> ItemSizes { get; set; }
         public virtual DbSet<MenuItemPrice> MenuItemPrice { get; set; }
-        public virtual DbSet<MenuItems> MenuItems { get; set; }
+        public virtual DbSet<MenuItem> MenuItems { get; set; }
 
         /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
          {
@@ -26,7 +32,7 @@ namespace pizzzadata.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ItemSizes>(entity =>
+            modelBuilder.Entity<ItemSize>(entity =>
             {
                 entity.HasKey(e => e.SizeId);
 
@@ -37,6 +43,8 @@ namespace pizzzadata.Models
                     .HasMaxLength(30)
                     .IsUnicode(false);
             });
+
+
 
             modelBuilder.Entity<MenuItemPrice>(entity =>
             {
@@ -61,7 +69,7 @@ namespace pizzzadata.Models
                     .HasConstraintName("FK_MenuItemPrice_ItemSizes");
             });
 
-            modelBuilder.Entity<MenuItems>(entity =>
+            modelBuilder.Entity<MenuItem>(entity =>
             {
                 entity.HasKey(e => e.MenuId);
 
