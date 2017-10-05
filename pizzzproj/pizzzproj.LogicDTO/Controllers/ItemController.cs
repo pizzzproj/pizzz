@@ -13,7 +13,7 @@ using System.Text;
 namespace pizzzproj.LogicDTO.Controllers
 {
     [Produces("application/json")]
-    [Route("pizzza/Item")]
+    [Route("pizzza/Item/[controller]")]
     public class ItemController : Controller
     {
 
@@ -55,18 +55,18 @@ namespace pizzzproj.LogicDTO.Controllers
             }
             return 0;
         }
-
+        // pizzza/item/getmenu
         [HttpGet]
-        public Item GetMenu()
+        public List<Item> GetMenu()
         {
             HttpClient orderclient = new HttpClient();
 
-            var res = orderclient.GetAsync("http://localhost:58080/pizzzadata/api/menu/").GetAwaiter().GetResult();
+            var res = orderclient.GetAsync("http://localhost:56729/pizzzadata/api/menu/").GetAwaiter().GetResult();
 
             if (res.IsSuccessStatusCode)
             {
                 var json = res.Content.ReadAsStringAsync().Result;
-                var driver = JsonConvert.DeserializeObject<Item>(json);
+                var driver = JsonConvert.DeserializeObject<List<Item>>(json);
                 Response.StatusCode = (int)HttpStatusCode.OK;
                 return driver;
             }
