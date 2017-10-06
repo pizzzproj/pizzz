@@ -13,7 +13,7 @@ using System.Net;
 namespace pizzzproj.LogicDTO.Controllers
 {
     [Produces("application/json")]
-    [Route("pizzza/Admin")]
+    [Route("Admin/[Controller]")]
     public class AdminController : Controller
     {
         private string _route = "http://ec2-13-58-127-50.us-east-2.compute.amazonaws.com";
