@@ -1,4 +1,4 @@
-﻿@model IEnumerable<pizzzadata.Models.ItemSizes>
+﻿@model IEnumerable<pizzzadata.Models.MenuItem>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,7 +13,7 @@
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Size)
+                    @Html.DisplayNameFor(model => model.Item)
                 </th>
             <th></th>
         </tr>
@@ -22,12 +22,12 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Size)
+                @Html.DisplayFor(modelItem => item.Item)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.SizeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SizeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SizeId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.MenuId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MenuId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MenuId">Delete</a>
             </td>
         </tr>
 }
