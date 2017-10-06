@@ -17,7 +17,7 @@ namespace pizzzproj.LogicDTO.Controllers
     public class ItemController : Controller
     {
 
-
+        private string _route = "http://ec2-13-58-127-50.us-east-2.compute.amazonaws.com";
         /*
         [HttpPost]
         public void NewItemPost([FromBody]Item item)
@@ -44,7 +44,7 @@ namespace pizzzproj.LogicDTO.Controllers
         {
             HttpClient pizzclient = new HttpClient();
 
-            var res = pizzclient.GetAsync("http://localhost:56729/pizzzadata/api/menuitemprice/" + i).GetAwaiter().GetResult();
+            var res = pizzclient.GetAsync(_route + i).GetAwaiter().GetResult();
 
             if(res.IsSuccessStatusCode)
             {
@@ -61,7 +61,7 @@ namespace pizzzproj.LogicDTO.Controllers
         {
             HttpClient orderclient = new HttpClient();
 
-            var res = orderclient.GetAsync("http://localhost:56729/pizzzadata/api/menu/").GetAwaiter().GetResult();
+            var res = orderclient.GetAsync(_route).GetAwaiter().GetResult();
 
             if (res.IsSuccessStatusCode)
             {
@@ -77,7 +77,7 @@ namespace pizzzproj.LogicDTO.Controllers
         public Item GetItem(int id)
         {
             HttpClient httpClient = new HttpClient();
-            var res = httpClient.GetAsync("http://localhost:56729/pizzzadata/api/menuitem/" + id).GetAwaiter().GetResult();
+            var res = httpClient.GetAsync(_route + id).GetAwaiter().GetResult();
 
             if(res.IsSuccessStatusCode)
             {
