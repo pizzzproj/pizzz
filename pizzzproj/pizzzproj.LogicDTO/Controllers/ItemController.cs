@@ -61,7 +61,7 @@ namespace pizzzproj.LogicDTO.Controllers
         {
             HttpClient orderclient = new HttpClient();
 
-            var res = orderclient.GetAsync(_route).GetAwaiter().GetResult();
+            var res = orderclient.GetAsync(_route + "pizzzadata/api/Get").GetAwaiter().GetResult();
 
             if (res.IsSuccessStatusCode)
             {
