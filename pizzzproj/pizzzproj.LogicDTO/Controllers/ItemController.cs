@@ -13,7 +13,7 @@ using System.Text;
 namespace pizzzproj.LogicDTO.Controllers
 {
     [Produces("application/json")]
-    [Route("pizzza/Item/[controller]")]
+    [Route("Item/[controller]")]
     public class ItemController : Controller
     {
 
