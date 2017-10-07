@@ -16,7 +16,7 @@ namespace pizzzproj.LogicDTO.Controllers
     [Route("Admin/[Controller]")]
     public class AdminController : Controller
     {
-        private string _route = "localhost";
+        private string _route = "ec2-34-207-116-9.compute-1.amazonaws.com/";
 
         // GET: pizzza/Admin/get/5
         [HttpGet]
