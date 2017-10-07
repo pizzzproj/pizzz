@@ -17,7 +17,7 @@ namespace pizzzproj.LogicDTO.Controllers
     public class ItemController : Controller
     {
 
-        private string _route = "localhost/";
+        private string _route = "localhost/data/";
         /*
         [HttpPost]
         public void NewItemPost([FromBody]Item item)
