@@ -17,7 +17,7 @@ namespace pizzzproj.LogicDTO.Controllers
     public class ItemController : Controller
     {
 
-        private string _route = "ec2-34-207-116-9.compute-1.amazonaws.com/data/";
+        private string _route = "localhost/";
         /*
         [HttpPost]
         public void NewItemPost([FromBody]Item item)
