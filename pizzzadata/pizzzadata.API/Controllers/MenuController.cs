@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using pizzzadata.API.Models;
 using pizzzadata.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,11 +23,24 @@ namespace pizzzadata.API.Controllers
 
         // GET
         [HttpGet]
-        public IActionResult Get()
+        public List<Item> Get()
         {
-            var fullMenu = _context.MenuItemPrice.ToList();
+            var fullMenuQuery = from a in _context.MenuItemPrice
+                                join b in _context.MenuItem on a.MenuId equals b.MenuId
+                                join c in _context.ItemSize on a.SizeId equals c.SizeId
+                                select new Item
+                                {
+                                    Name = b.Item,
+                                    Size = c.Size,
+                                    Price = (decimal) a.Price
+                                };
+            List<Item> apiFullMenu = new List<Item> { };
 
-            return new ObjectResult(fullMenu);
+            foreach (var item in fullMenuQuery)
+            {
+                apiFullMenu.Add(item);
+            }
+            return (apiFullMenu);
         }
 
         // POST api/values
