@@ -17,7 +17,7 @@ namespace pizzzproj.LogicDTO.Controllers
     public class ItemController : Controller
     {
 
-        private string _route = "http://ec2-13-58-127-50.us-east-2.compute.amazonaws.com/";
+        private string _route = "localhost/";
         /*
         [HttpPost]
         public void NewItemPost([FromBody]Item item)
@@ -36,7 +36,6 @@ namespace pizzzproj.LogicDTO.Controllers
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
             }
         }*/
-
 
 
         [HttpGet]
