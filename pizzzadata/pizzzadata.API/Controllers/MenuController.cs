@@ -10,7 +10,7 @@ using pizzzadata.Models;
 namespace pizzzadata.API.Controllers
 {
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("pizzzadata/api/[controller]")]
     public class MenuController : Controller
     {
         private readonly PizzzaDatabaseContext _context;
