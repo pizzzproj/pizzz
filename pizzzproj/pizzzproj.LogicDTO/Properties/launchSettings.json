@@ -4,14 +4,14 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:59442/",
-      "sslPort": 0
+      "sslPort": 0 
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "pizzza/item",
+      "launchUrl": "item",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -19,7 +19,7 @@
 			"pizzzproj.LogicDTO": {
 				"commandName": "Project",
 				"launchBrowser": true,
-				"launchUrl": "pizzza/item",
+				"launchUrl": "item",
 				"environmentVariables": {
 					"ASPNETCORE_ENVIRONMENT": "Development"
 				},
