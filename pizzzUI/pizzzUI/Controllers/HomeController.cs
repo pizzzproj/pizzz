@@ -12,22 +12,33 @@ namespace pizzzUI.Controllers
     {
         public IActionResult Index()
         {
+
+           // var courses = _context.Courses
+               // .AsNoTracking();
+           // return View(await courses.ToListAsync());
+
             return View();
         }
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Welcome to PiZZZa!";
 
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult DeliveryOrCarry()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
+
+
+        public IActionResult DeliveryAddress()
+        {
+            return View();
+        }
+
+
 
         public IActionResult Error()
         {
