@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <None Include="Views\Home\DeliveryOrCarry.cshtml" />
+    <None Include="Views\Home\Menu.cshtml" />
   </ItemGroup>
 
 </Project>
