@@ -37,11 +37,11 @@ namespace pizzzproj.LogicDTO.Controllers
             return null;
         }
 
-        //NEEDS FIXING
         [HttpPost]
-        public void CreateItemPost([FromBody]Item item)
+        public void CreateItemPost([FromBody]Item item, string name, string size, decimal price)
         {
             HttpClient pizzclient = new HttpClient();
+            item.ItemName = name; item.ItemSize = size; item.ItemPrice = price; 
             var yo = JsonConvert.SerializeObject(item);
             var body = new StringContent(yo, Encoding.UTF8, "application/json");
             var res = pizzclient.PostAsync(_route + "data/pizzzadata/api/menuitem/", body).GetAwaiter().GetResult();
