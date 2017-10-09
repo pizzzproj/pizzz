@@ -21,24 +21,24 @@ namespace pizzzadata.API.Controllers
 
         // GET: pizzzadata/api/admin
         [HttpGet]
-        public IActionResult Get()
+        public PizzzaAdmin Get(int id)
         {
-            var adminRec = new List<PizzzaAdmin>();
+            PizzzaAdmin temp = new PizzzaAdmin();
+
             foreach (var record in _context.PizzzaAdmin)
             {
-                adminRec.Add(record);
+                if(id == record.AdminId)
+                {
+                    temp.AdminId = record.AdminId;
+                    temp.Fname = record.Fname;
+                    temp.Lname = record.Lname;
+                    temp.Username = record.Username;
+                    temp.AdminPassword = record.AdminPassword;
+                    return temp;
+                }
             }
 
-            return new ObjectResult(adminRec);
-        }
-
-        // GET: pizzzadata/api/admin
-        [HttpGet("{adminId=1}")]
-        public IActionResult Get(int adminId)
-        {
-            var adminRec = _context.PizzzaAdmin.FirstOrDefault(y => y.AdminId == adminId);
-
-            return new ObjectResult(adminRec);
+            return null;
         }
 
         // POST api/values
