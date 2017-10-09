@@ -9,24 +9,36 @@ using pizzzadata.Models;
 
 namespace pizzzadata.API.Controllers
 {
-    [Produces("application/json")]
     [Route("pizzzadata/api/[controller]")]
-    public class MenuItemPriceController : Controller
+    public class AdminController : Controller
     {
         private readonly PizzzaDatabaseContext _context;
 
-        public MenuItemPriceController (PizzzaDatabaseContext context)
+        public AdminController(PizzzaDatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: pizzzadata/api/menuitemprice/menuId/sizeId
-        [HttpGet("{menuId=1}/{sizeId=1}")]
-        public IActionResult Get(int menuId, int sizeId)
+        // GET: pizzzadata/api/admin
+        [HttpGet]
+        public IActionResult Get()
         {
-            var menuItemPrice = _context.MenuItemPrice.Where(z => z.MenuId == menuId).FirstOrDefault(y => y.SizeId == sizeId);
+            var adminRec = new List<PizzzaAdmin>();
+            foreach (var record in _context.PizzzaAdmin)
+            {
+                adminRec.Add(record);
+            }
 
-            return new ObjectResult(menuItemPrice.Price);
+            return new ObjectResult(adminRec);
+        }
+
+        // GET: pizzzadata/api/admin
+        [HttpGet("{adminId=1}")]
+        public IActionResult Get(int adminId)
+        {
+            var adminRec = _context.PizzzaAdmin.FirstOrDefault(y => y.AdminId == adminId);
+
+            return new ObjectResult(adminRec);
         }
 
         // POST api/values

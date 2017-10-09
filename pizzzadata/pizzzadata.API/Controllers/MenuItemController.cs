@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
+using System.Net.Http;
+using System.Text;
+using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc;
+using pizzzadata.API.Models;
 using pizzzadata.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace pizzzadata.API.Controllers
 {
+    [Consumes("application/json")]
     [Produces("application/json")]
     [Route("pizzzadata/api/[controller]")]
     public class MenuItemController : Controller
@@ -20,7 +25,7 @@ namespace pizzzadata.API.Controllers
             _context = context;
         }
 
-        // GET pizzzadata/api/menuitem/5
+        // GET pizzzadata/api/menuitem/itemId
         [HttpGet("{itemId=1}")]
         public IActionResult Get(int itemId)
         {
@@ -31,8 +36,14 @@ namespace pizzzadata.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post(string newMenuItemString)
         {
+            Console.WriteLine(newMenuItemString);
+            //MenuItem addMenuItem = new MenuItem
+            //{
+            //    Item = newMenuItem.Name
+            //};
+            //_context.MenuItem.Add(addMenuItem);
         }
 
         // PUT api/values/5

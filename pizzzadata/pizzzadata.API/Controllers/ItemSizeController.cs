@@ -20,7 +20,7 @@ namespace pizzzadata.API.Controllers
             _context = context;
         }
 
-        // GET api/values/5
+        // GET pizzzadata/api/itemsize/sizeId
         [HttpGet("{sizeId=1}")]
         public IActionResult Get(int sizeId)
         {
