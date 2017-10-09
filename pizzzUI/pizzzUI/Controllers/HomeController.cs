@@ -38,6 +38,11 @@ namespace pizzzUI.Controllers
             return View();
         }
 
+        public IActionResult Menu()
+        {
+            return View();
+        }
+
 
 
         public IActionResult Error()
