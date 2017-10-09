@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB_Test", "DB_Test\DB_Test.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PracticeQueriesConsole.cs", "PracticeQueriesConsole.cs\PracticeQueriesConsole.cs.csproj", "{18687C46-1089-46A6-BEFC-3D35B81709D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pizzzadata.API", "pizzzadata.API\pizzzadata.API.csproj", "{0B43008C-E0DF-445E-9351-D1A6ECC7765C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pizzzadata.API", "pizzzadata.API\pizzzadata.API.csproj", "{0B43008C-E0DF-445E-9351-D1A6ECC7765C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
