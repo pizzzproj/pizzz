@@ -34,11 +34,12 @@ namespace pizzzproj.LogicDTO.Controllers
             }
             return null;
         }
-        //NEEDS FIXING
+      
         [HttpPost]
-        public void CreateAdmin([FromBody]Admin admin)
+        public void CreateAdmin([FromBody]Admin admin, string fn, string ln, string un, int pass)
         {
             HttpClient pizzclient = new HttpClient();
+            admin.Fname = fn; admin.Lname = ln; admin.Uname = un; admin.Password = pass;
             var yo = JsonConvert.SerializeObject(admin);
             var body = new StringContent(yo, Encoding.UTF8, "application/json");
             var res = pizzclient.PostAsync(_route + "data/pizzzadata/api/", body).GetAwaiter().GetResult();
@@ -52,7 +53,7 @@ namespace pizzzproj.LogicDTO.Controllers
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
             }
         }
-        //NEEDS FIXING
+    
         [HttpPut]
         public void NewNamePut([FromBody]Item item, string newName)
         {
@@ -60,7 +61,7 @@ namespace pizzzproj.LogicDTO.Controllers
             HttpClient adminClient = new HttpClient();
             var oy = JsonConvert.SerializeObject(item);
             var body = new StringContent(oy, Encoding.UTF8, "application/json");
-            var res = adminClient.PutAsync(_route, body).GetAwaiter().GetResult();
+            var res = adminClient.PutAsync(_route + "data/pizzzadata/api/menuitem/" + item.ItemId, body).GetAwaiter().GetResult();
 
             if (res.IsSuccessStatusCode)
             {
