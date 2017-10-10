@@ -18,7 +18,7 @@ namespace pizzzproj.LogicDTO.Controllers
     {
         private string _route = "http://ec2-34-207-116-9.compute-1.amazonaws.com/";
         
-        [HttpGet]
+        [HttpGet("{id=1}")]
         public Admin GetAdmin(int id)
         {
             HttpClient httpClient = new HttpClient();

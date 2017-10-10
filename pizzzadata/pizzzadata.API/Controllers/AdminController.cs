@@ -42,20 +42,20 @@ namespace pizzzadata.API.Controllers
         //}
 
         // GET: pizzzadata/api/admin
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var adminRec = new List<PizzzaAdmin>();
+        //[HttpGet]
+        //public IActionResult Get()
+        //{
+        //    var adminRec = new List<PizzzaAdmin>();
 
-            foreach (var record in _context.PizzzaAdmin)
+        //    foreach (var record in _context.PizzzaAdmin)
 
-            {
+        //    {
 
-                adminRec.Add(record);
-            }
-            return new ObjectResult(adminRec);
+        //        adminRec.Add(record);
+        //    }
+        //    return new ObjectResult(adminRec);
 
-        }
+        //}
 
         // GET: pizzzadata/api/admin/1
         [HttpGet("{adminId=1}")]
