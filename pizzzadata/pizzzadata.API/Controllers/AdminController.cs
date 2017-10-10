@@ -36,8 +36,7 @@ namespace pizzzadata.API.Controllers
 
         // GET: pizzzadata/api/admin/1
         [HttpGet("{adminId=1}")]
-        public IActionResult Get(int adminId)
-       
+        public IActionResult Get(int adminId)       
         {
             var adminRec = _context.PizzzaAdmin.FirstOrDefault(y => y.AdminId == adminId);
 
