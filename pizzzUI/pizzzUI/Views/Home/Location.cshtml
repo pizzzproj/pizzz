@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewData["Title"] = "Location";
+}
+
+<h1>Location</h1>
+
+
+@*<!DOCTYPE html>
+<html>
+<head>
+    <title>Geocoding service</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+         /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+         #map {
+             height: 100%;
+         }
+         /* Optional: Makes the sample page fill the window. */
+         html, body {
+             height: 100%;
+             margin: 0;
+             padding: 0;
+         }
+
+         #floating-panel {
+             position: absolute;
+             top: 10px;
+             left: 25%;
+             z-index: 5;
+             background-color: #fff;
+             padding: 5px;
+             border: 1px solid #999;
+             text-align: center;
+             font-family: 'Roboto','sans-serif';
+             line-height: 30px;
+             padding-left: 10px;
+         }
+    </style>
+</head>
+<body>
+    <div id="floating-panel">
+        <input id="address" type="textbox" value="Lutz, FL">
+        <input id="submit" type="button" value="Geocode">
+    </div>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var miami = {lat: 25.7617, lng: -80.191790};
+        var tampa = {lat: 27.950575, lng: -82.457178};
+        var sarasota = {lat: 27.336435, lng: -82.530653};
+        var tristan_da_cunha = {lat: -37.105249, lng: -12.277684};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+
+          center: {lat: 28.141168 , lng: -82.457199}
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        var marker1 = new google.maps.Marker({
+        position: miami,
+        draggable: false,
+        animation: google.maps.Animation.DROP,
+        map: map,
+        title: 'Miami'
+        });
+
+  var marker2 = new google.maps.Marker({
+    position: tampa,
+    draggable: false,
+    animation: google.maps.Animation.DROP,
+    map: map,
+    title: 'Tampa'
+    });
+
+  var marker3 = new google.maps.Marker({
+    position: sarasota,
+    draggable: false,
+    animation: google.maps.Animation.DROP,
+    map: map,
+    title: 'Sarasota'
+  });
+
+  var marker4 = new google.maps.Marker({
+    position: tristan_da_cunha,
+    draggable: false,
+    animation: google.maps.Animation.DROP,
+    map: map,
+    title: 'Tristan Da Cunha'
+  });
+
+  marker1.addListener('click', toggleBounce);
+  marker2.addListener('click', toggleBounce);
+  marker3.addListener('click', toggleBounce);
+  marker4.addListener('click', toggleBounce);
+
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeAddress(geocoder, map);
+        });
+      }
+
+
+      function toggleBounce() {
+    if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+    } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
+
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-wPbck0d4tasVf9m6cp9Lk2bz_3qZRHQ&callback=initMap">
+    </script>
+</body>
+</html>*@

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,17 +26,18 @@ namespace pizzzadata.API.Controllers
         public IActionResult Get()
         {
             var adminRec = new List<PizzzaAdmin>();
+
             foreach (var record in _context.PizzzaAdmin)
             {
                 adminRec.Add(record);
             }
-
             return new ObjectResult(adminRec);
         }
 
         // GET: pizzzadata/api/admin/1
         [HttpGet("{adminId=1}")]
         public IActionResult Get(int adminId)
+       
         {
             var adminRec = _context.PizzzaAdmin.FirstOrDefault(y => y.AdminId == adminId);
 

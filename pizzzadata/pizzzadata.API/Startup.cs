@@ -26,8 +26,8 @@ namespace pizzzadata.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
-            var dbConnection = @"Server=tcp:sqlweek1-elijah.database.windows.net,1433;Initial Catalog=pizzzaDatabase;Persist Security Info=False;User ID=sqladmin_elijah;Password=8Vdh17boc8@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            //double check
+            var dbConnection = @"Server=sqlweek1-elijah.database.windows.net;Initial Catalog=pizzzaDatabase;Persist Security Info=False;User ID=sqladmin_elijah;Password=8Vdh17boc8@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             services.AddDbContext<PizzzaDatabaseContext>(options => options.UseSqlServer(dbConnection));
         }
 

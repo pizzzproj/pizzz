@@ -31,13 +31,15 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Location">Location</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Menu">Menu</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container body-content">
         @RenderBody()
+        @RenderSection("C:/Users/Elijah/Documents/Map.js", required: false)
         <hr />
         <footer>
             <p>&copy; 2017 - pizzzUI</p>
@@ -64,7 +66,7 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-
+     
     @RenderSection("Scripts", required: false)
 </body>
 </html>
