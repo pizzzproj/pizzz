@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using pizzzadata.API.Models;
 using pizzzadata.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace pizzzadata.API.Controllers
 {
+    [Consumes("application/json")]
     [Produces("application/json")]
     [Route("pizzzadata/api/[controller]")]
     public class MenuItemPriceController : Controller
@@ -29,22 +31,38 @@ namespace pizzzadata.API.Controllers
             return new ObjectResult(menuItemPrice.Price);
         }
 
-        // POST api/values
+        // POST pizzzadata/api/menuitemprice
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Item newMenuItem)
         {
+            MenuItemPrice addMenuItem = new MenuItemPrice
+            {
+                MenuId = _context.MenuItem.Single(z => z.Item == newMenuItem.ItemName).MenuId,
+                SizeId = _context.ItemSize.FirstOrDefault(z => z.Size == newMenuItem.Size).SizeId,
+                Price = newMenuItem.Price
+            };
+            _context.MenuItemPrice.Add(addMenuItem);
+            _context.SaveChanges();
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        // PUT pizzzadata/api/menuitemprice
+        [HttpPut]
+        public void Put([FromBody]Item updatedMenuItem)
         {
+            _context.MenuItemPrice.Where(z => z.Menu.Item == updatedMenuItem.ItemName)
+                .FirstOrDefault(y => y.Size.Size == updatedMenuItem.Size).Price
+                = updatedMenuItem.Price;
+            _context.SaveChanges();
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // DELETE pizzzadata/api/menuitemprice
+        [HttpDelete]
+        public void Delete([FromBody]Item deletedMenuItem)
         {
+            var menuItemPrice = _context.MenuItemPrice.Where(z => z.Menu.Item == deletedMenuItem.ItemName)
+                .FirstOrDefault(y => y.Size.Size == deletedMenuItem.Size);
+            _context.MenuItemPrice.Remove(menuItemPrice);
+            _context.SaveChanges();
         }
     }
 }
