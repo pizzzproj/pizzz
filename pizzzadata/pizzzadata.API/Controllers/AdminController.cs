@@ -16,6 +16,7 @@ namespace pizzzadata.API.Controllers
 
         public AdminController(PizzzaDatabaseContext context)
         {
+
             _context = context;
         }
 
