@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pizzzUI", "pizzzUI\pizzzUI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pizzzUIMap", "pizzzUIMap\pizzzUIMap.csproj", "{B6A1E016-2C8B-442A-8469-8DF2BAC26AAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pizzzUIAng", "pizzzUIAng\pizzzUIAng.csproj", "{5E90CED3-D4C9-4898-9BF4-7675652042F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pizzzUIAng", "pizzzUIAng\pizzzUIAng.csproj", "{5E90CED3-D4C9-4898-9BF4-7675652042F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeUI", "FakeUI\FakeUI.csproj", "{C4FE2D23-0BCC-4728-95C7-DB071F70DAA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{5E90CED3-D4C9-4898-9BF4-7675652042F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E90CED3-D4C9-4898-9BF4-7675652042F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E90CED3-D4C9-4898-9BF4-7675652042F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4FE2D23-0BCC-4728-95C7-DB071F70DAA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4FE2D23-0BCC-4728-95C7-DB071F70DAA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4FE2D23-0BCC-4728-95C7-DB071F70DAA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4FE2D23-0BCC-4728-95C7-DB071F70DAA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
