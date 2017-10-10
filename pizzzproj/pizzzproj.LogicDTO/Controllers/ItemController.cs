@@ -20,7 +20,7 @@ namespace pizzzproj.LogicDTO.Controllers
 
         private string _route = "http://ec2-34-207-116-9.compute-1.amazonaws.com/";
 
-        [AllowAnonymous]
+       // [AllowAnonymous]
         [HttpGet]
         public List<Item> GetMenu()
         {

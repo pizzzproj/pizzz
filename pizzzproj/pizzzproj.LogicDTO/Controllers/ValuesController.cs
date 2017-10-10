@@ -20,7 +20,7 @@ namespace pizzzproj.LogicDTO.Controllers
 
 
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPut]
         public void NewPricePut([FromBody]Item item)
         {
