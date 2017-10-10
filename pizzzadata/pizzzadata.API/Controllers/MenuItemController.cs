@@ -30,8 +30,10 @@ namespace pizzzadata.API.Controllers
         public IActionResult Get(int itemId)
         {
             var menuItem = _context.MenuItem.FirstOrDefault(z => z.MenuId == itemId);
+            var wholeitem = _context.MenuItemPrice.FirstOrDefault(y => y.MenuId == menuItem.MenuId);
 
-            return new ObjectResult(menuItem.Item);
+            return new ObjectResult(wholeitem);
+           
         }
 
         // POST api/values
