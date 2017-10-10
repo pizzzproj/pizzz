@@ -19,26 +19,52 @@ namespace pizzzadata.API.Controllers
             _context = context;
         }
 
+        //// GET: pizzzadata/api/admin
+        //[HttpGet]
+        //public PizzzaAdmin Get(int id)
+        //{
+        //    PizzzaAdmin temp = new PizzzaAdmin();
+
+        //    foreach (var record in _context.PizzzaAdmin)
+        //    {
+        //        if(id == record.AdminId)
+        //        {
+        //            temp.AdminId = record.AdminId;
+        //            temp.Fname = record.Fname;
+        //            temp.Lname = record.Lname;
+        //            temp.Username = record.Username;
+        //            temp.AdminPassword = record.AdminPassword;
+        //            return temp;
+        //        }
+        //    }
+
+        //    return null;
+        //}
+
         // GET: pizzzadata/api/admin
         [HttpGet]
-        public PizzzaAdmin Get(int id)
+        public IActionResult Get()
         {
-            PizzzaAdmin temp = new PizzzaAdmin();
+            var adminRec = new List<PizzzaAdmin>();
 
             foreach (var record in _context.PizzzaAdmin)
-            {
-                if(id == record.AdminId)
-                {
-                    temp.AdminId = record.AdminId;
-                    temp.Fname = record.Fname;
-                    temp.Lname = record.Lname;
-                    temp.Username = record.Username;
-                    temp.AdminPassword = record.AdminPassword;
-                    return temp;
-                }
-            }
 
-            return null;
+            {
+
+                adminRec.Add(record);
+            }
+            return new ObjectResult(adminRec);
+
+        }
+
+        // GET: pizzzadata/api/admin/1
+        [HttpGet("{adminId=1}")]
+        public IActionResult Get(int adminId)
+       
+        {
+            var adminRec = _context.PizzzaAdmin.FirstOrDefault(y => y.AdminId == adminId);
+
+            return new ObjectResult(adminRec);
         }
 
         // POST api/values
