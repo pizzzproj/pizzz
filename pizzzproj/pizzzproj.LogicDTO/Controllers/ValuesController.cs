@@ -8,6 +8,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace pizzzproj.LogicDTO.Controllers
 {
@@ -19,7 +20,7 @@ namespace pizzzproj.LogicDTO.Controllers
 
 
 
-  
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public void NewPricePut([FromBody]Item item)
         {

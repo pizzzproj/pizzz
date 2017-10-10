@@ -9,6 +9,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 //----------------------------------------------------------------ADMIN------------------------------
 namespace pizzzproj.LogicDTO.Controllers
 {
@@ -18,6 +19,7 @@ namespace pizzzproj.LogicDTO.Controllers
     {
         private string _route = "http://ec2-34-207-116-9.compute-1.amazonaws.com/";
         
+        [AllowAnonymous]
         [HttpGet("{id=1}")]
         public Admin GetAdmin(int id)
         {
@@ -35,6 +37,7 @@ namespace pizzzproj.LogicDTO.Controllers
             return null;
         }
       
+       // [Authorize(Roles = "Admin")]
         [HttpPost]
         public void CreateAdmin([FromBody]Admin admin)
         {
@@ -53,6 +56,7 @@ namespace pizzzproj.LogicDTO.Controllers
             }
         }
     
+        //[Authorize(Roles = "Admin")]
         [HttpPut]
         public void NewNamePut([FromBody]Item item)
         {
@@ -71,6 +75,7 @@ namespace pizzzproj.LogicDTO.Controllers
             }
         }
 
+       // [Authorize(Roles = "Admin")]
         [HttpDelete("{id=1}")]
         public void DeleteAdmin(int id)
         {

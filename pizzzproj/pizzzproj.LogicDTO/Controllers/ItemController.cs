@@ -9,6 +9,7 @@ using pizzzproj.LogicDTO.Models;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 //---------------------------------------------MENU-------------------------------------------------
 namespace pizzzproj.LogicDTO.Controllers
 {
@@ -19,6 +20,7 @@ namespace pizzzproj.LogicDTO.Controllers
 
         private string _route = "http://ec2-34-207-116-9.compute-1.amazonaws.com/";
 
+        [AllowAnonymous]
         [HttpGet]
         public List<Item> GetMenu()
         {
