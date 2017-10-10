@@ -9,6 +9,8 @@ using pizzzadata.Models;
 
 namespace pizzzadata.API.Controllers
 {
+    [Consumes("application/json")]
+    [Produces("application/json")]
     [Route("pizzzadata/api/[controller]")]
     public class AdminController : Controller
     {
@@ -32,7 +34,7 @@ namespace pizzzadata.API.Controllers
             return new ObjectResult(adminRec);
         }
 
-        // GET: pizzzadata/api/admin
+        // GET: pizzzadata/api/admin/1
         [HttpGet("{adminId=1}")]
         public IActionResult Get(int adminId)
         {
@@ -41,19 +43,19 @@ namespace pizzzadata.API.Controllers
             return new ObjectResult(adminRec);
         }
 
-        // POST api/values
+        // POST pizzzadata/api/admin
         [HttpPost]
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT api/values/5
+        // PUT pizzzadata/api/admin
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE pizzzadata/api/admin
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

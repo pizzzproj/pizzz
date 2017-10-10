@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using pizzzadata.API.Models;
 using pizzzadata.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace pizzzadata.API.Controllers
 {
+    [Consumes("application/json")]
     [Produces("application/json")]
     [Route("pizzzadata/api/[controller]")]
     public class ItemSizeController : Controller
@@ -29,22 +31,33 @@ namespace pizzzadata.API.Controllers
             return new ObjectResult(menuItem.Size);
         }
 
-        // POST api/values
+        // POST pizzzadata/api/itemsize
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Item newMenuItem)
         {
+            ItemSize addItemSize = new ItemSize
+            {
+                Size = newMenuItem.Size
+            };
+            _context.ItemSize.Add(addItemSize);
+            _context.SaveChanges();
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        // PUT pizzzadata/api/itemsize
+        [HttpPut]
+        public void Put([FromBody]Item updatedMenuItem)
         {
+            _context.ItemSize.FirstOrDefault(z => z.SizeId == updatedMenuItem.Id).Size = updatedMenuItem.Size;
+            _context.SaveChanges();
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // DELETE pizzzadata/api/itemsize
+        [HttpDelete]
+        public void Delete([FromBody]Item deletedMenuItem)
         {
+            var menuItem = _context.MenuItem.FirstOrDefault(z => z.MenuId == deletedMenuItem.Id);
+            _context.MenuItem.Remove(menuItem);
+            _context.SaveChanges();
         }
     }
 }

@@ -34,28 +34,33 @@ namespace pizzzadata.API.Controllers
             return new ObjectResult(menuItem.Item);
         }
 
-        // POST api/values
+        // POST pizzzadata/api/menuitem
         [HttpPost]
-        public void Post(string newMenuItemString)
+        public void Post([FromBody]Item newMenuItem)
         {
-            Console.WriteLine(newMenuItemString);
-            //MenuItem addMenuItem = new MenuItem
-            //{
-            //    Item = newMenuItem.Name
-            //};
-            //_context.MenuItem.Add(addMenuItem);
+            MenuItem addMenuItem = new MenuItem
+            {
+                Item = newMenuItem.ItemName
+            };
+            _context.MenuItem.Add(addMenuItem);
+            _context.SaveChanges();
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        // PUT pizzzadata/api/menuitem
+        [HttpPut]
+        public void Put([FromBody]Item updatedMenuItem)
         {
+            _context.MenuItem.FirstOrDefault(z => z.MenuId == updatedMenuItem.Id).Item = updatedMenuItem.ItemName;
+            _context.SaveChanges();
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // DELETE pizzzadata/api/menuitem
+        [HttpDelete]
+        public void Delete([FromBody]Item deletedMenuItem)
         {
+            var menuItem = _context.MenuItem.FirstOrDefault(z => z.MenuId == deletedMenuItem.Id);
+            _context.MenuItem.Remove(menuItem);
+            _context.SaveChanges();
         }
     }
 }
