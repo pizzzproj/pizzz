@@ -20,7 +20,7 @@ namespace pizzzproj.LogicDTO.Controllers
 
         private string _route = "http://ec2-34-207-116-9.compute-1.amazonaws.com/";
 
-        [AllowAnonymous]
+      //  [AllowAnonymous]
         [HttpGet("{id=1}")]
         public Item GetItem(int id)
         {
@@ -38,7 +38,7 @@ namespace pizzzproj.LogicDTO.Controllers
             return null;
         }
 
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         [HttpPost]
         public void CreateItemPost([FromBody]Item item)
         {
@@ -57,7 +57,7 @@ namespace pizzzproj.LogicDTO.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+      //  [Authorize(Roles = "Admin")]
         [HttpDelete("{id=1}")]
         public void DeleteItem(int id)
         {
