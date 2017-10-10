@@ -31,7 +31,7 @@ namespace pizzzadata.API.Controllers
                                 join c in _context.ItemSize on a.SizeId equals c.SizeId
                                 select new Item
                                 {
-                                    Name = b.Item,
+                                    ItemName = b.Item,
                                     Size = c.Size,
                                     Price = (decimal) a.Price
                                 };

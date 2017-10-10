@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +9,8 @@ using pizzzadata.Models;
 
 namespace pizzzadata.API.Controllers
 {
+    [Consumes("application/json")]
+    [Produces("application/json")]
     [Route("pizzzadata/api/[controller]")]
     public class AdminController : Controller
     {
@@ -18,17 +20,17 @@ namespace pizzzadata.API.Controllers
         {
             _context = context;
         }
-        
-        //GET: pizzzadata/api/admin
-       [HttpGet]
+
+        // GET: pizzzadata/api/admin
+        [HttpGet]
         public IActionResult Get()
         {
             var adminRec = new List<PizzzaAdmin>();
+
             foreach (var record in _context.PizzzaAdmin)
             {
                 adminRec.Add(record);
             }
-
             return new ObjectResult(adminRec);
         }
 
@@ -41,19 +43,19 @@ namespace pizzzadata.API.Controllers
             return new ObjectResult(adminRec);
         }
 
-        // POST api/values
+        // POST pizzzadata/api/admin
         [HttpPost]
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT api/values/5
+        // PUT pizzzadata/api/admin
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE pizzzadata/api/admin
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
