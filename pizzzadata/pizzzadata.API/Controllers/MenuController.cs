@@ -37,7 +37,7 @@ namespace pizzzadata.API.Controllers
                                 };
             List<Item> apiFullMenu = new List<Item> { };
 
-            foreach (var item in fullMenuQuery)
+            foreach (Item item in fullMenuQuery)
             {
                 apiFullMenu.Add(item);
             }

@@ -24,7 +24,6 @@
     <Folder Include="Ang\Controller\" />
     <Folder Include="Ang\CSS\" />
     <Folder Include="Ang\Views\" />
-    <Folder Include="Ang\Services\" />
   </ItemGroup>
 
 </Project>
