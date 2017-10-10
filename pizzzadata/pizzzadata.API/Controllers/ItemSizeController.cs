@@ -22,13 +22,18 @@ namespace pizzzadata.API.Controllers
             _context = context;
         }
 
+        // GET pizzzadata/api/itemsize
+        [HttpGet]
+        public List<ItemSize> Get()
+        {
+            return _context.ItemSize.ToList();
+        }
+
         // GET pizzzadata/api/itemsize/sizeId
         [HttpGet("{sizeId=1}")]
-        public IActionResult Get(int sizeId)
+        public ItemSize Get(int sizeId)
         {
-            var menuItem = _context.ItemSize.FirstOrDefault(z => z.SizeId == sizeId);
-
-            return new ObjectResult(menuItem.Size);
+            return _context.ItemSize.FirstOrDefault(z => z.SizeId == sizeId);
         }
 
         // POST pizzzadata/api/itemsize
@@ -45,9 +50,9 @@ namespace pizzzadata.API.Controllers
 
         // PUT pizzzadata/api/itemsize
         [HttpPut]
-        public void Put([FromBody]Item updatedMenuItem)
+        public void Put(string newSize, [FromBody]Item updatedMenuItem)
         {
-            _context.ItemSize.FirstOrDefault(z => z.SizeId == updatedMenuItem.Id).Size = updatedMenuItem.Size;
+            _context.ItemSize.FirstOrDefault(z => z.Size == updatedMenuItem.Size).Size = newSize;
             _context.SaveChanges();
         }
 
@@ -55,8 +60,8 @@ namespace pizzzadata.API.Controllers
         [HttpDelete]
         public void Delete([FromBody]Item deletedMenuItem)
         {
-            var menuItem = _context.MenuItem.FirstOrDefault(z => z.MenuId == deletedMenuItem.Id);
-            _context.MenuItem.Remove(menuItem);
+            var sizeItem = _context.ItemSize.FirstOrDefault(z => z.Size == deletedMenuItem.Size);
+            _context.ItemSize.Remove(sizeItem);
             _context.SaveChanges();
         }
     }
