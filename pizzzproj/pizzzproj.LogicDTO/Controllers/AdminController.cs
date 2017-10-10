@@ -36,10 +36,9 @@ namespace pizzzproj.LogicDTO.Controllers
         }
       
         [HttpPost]
-        public void CreateAdmin([FromBody]Admin admin, string fn, string ln, string un, int pass)
+        public void CreateAdmin([FromBody]Admin admin)
         {
             HttpClient pizzclient = new HttpClient();
-            admin.Fname = fn; admin.Lname = ln; admin.Uname = un; admin.Password = pass;
             var yo = JsonConvert.SerializeObject(admin);
             var body = new StringContent(yo, Encoding.UTF8, "application/json");
             var res = pizzclient.PostAsync(_route + "data/pizzzadata/api/", body).GetAwaiter().GetResult();
@@ -55,9 +54,8 @@ namespace pizzzproj.LogicDTO.Controllers
         }
     
         [HttpPut]
-        public void NewNamePut([FromBody]Item item, string newName)
+        public void NewNamePut([FromBody]Item item)
         {
-            item.ItemName = newName;
             HttpClient adminClient = new HttpClient();
             var oy = JsonConvert.SerializeObject(item);
             var body = new StringContent(oy, Encoding.UTF8, "application/json");
@@ -73,7 +71,7 @@ namespace pizzzproj.LogicDTO.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id=1}")]
         public void DeleteAdmin(int id)
         {
             HttpClient httpClient = new HttpClient();

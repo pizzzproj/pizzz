@@ -20,7 +20,7 @@ namespace pizzzproj.LogicDTO.Controllers
         private string _route = "http://ec2-34-207-116-9.compute-1.amazonaws.com/";
 
 
-        [HttpGet]
+        [HttpGet("{id=1}")]
         public Item GetItem(int id)
         {
             HttpClient orderclient = new HttpClient();
@@ -38,10 +38,9 @@ namespace pizzzproj.LogicDTO.Controllers
         }
 
         [HttpPost]
-        public void CreateItemPost([FromBody]Item item, string name, string size, decimal price)
+        public void CreateItemPost([FromBody]Item item)
         {
             HttpClient pizzclient = new HttpClient();
-            item.ItemName = name; item.ItemSize = size; item.ItemPrice = price; 
             var yo = JsonConvert.SerializeObject(item);
             var body = new StringContent(yo, Encoding.UTF8, "application/json");
             var res = pizzclient.PostAsync(_route + "data/pizzzadata/api/menuitem/", body).GetAwaiter().GetResult();
@@ -56,7 +55,7 @@ namespace pizzzproj.LogicDTO.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id=1}")]
         public void DeleteItem(int id)
         {
             HttpClient httpClient = new HttpClient();

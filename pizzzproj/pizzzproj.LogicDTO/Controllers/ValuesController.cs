@@ -21,9 +21,8 @@ namespace pizzzproj.LogicDTO.Controllers
 
   
         [HttpPut]
-        public void NewPricePut([FromBody]Item item, decimal newPrice)
+        public void NewPricePut([FromBody]Item item)
         {
-            item.ItemPrice = newPrice;
             HttpClient adminClient = new HttpClient();
             var oy = JsonConvert.SerializeObject(item);
             var body = new StringContent(oy, Encoding.UTF8, "application/json");
