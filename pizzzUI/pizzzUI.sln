@@ -5,7 +5,29 @@ VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pizzzUI", "pizzzUI\pizzzUI.csproj", "{C8113649-ED98-4A7D-83ED-4137732E7C45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pizzzUIMap", "pizzzUIMap\pizzzUIMap.csproj", "{B6A1E016-2C8B-442A-8469-8DF2BAC26AAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ngMap", "ngMap\ngMap.csproj", "{339910F2-7E96-4EB7-93FD-DF557ABC76FD}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PizzzaGMapNG", "..\..\..\WebSites\PizzzaGMapNG\", "{D0001A77-F966-4990-870E-76B8950DFA4C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62994"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\WebSites\PizzzaGMapNG\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62994\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62994"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\WebSites\PizzzaGMapNG\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62994\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62994"
+		SlnRelativePath = "..\..\..\WebSites\PizzzaGMapNG\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +39,14 @@ Global
 		{C8113649-ED98-4A7D-83ED-4137732E7C45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8113649-ED98-4A7D-83ED-4137732E7C45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8113649-ED98-4A7D-83ED-4137732E7C45}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B6A1E016-2C8B-442A-8469-8DF2BAC26AAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6A1E016-2C8B-442A-8469-8DF2BAC26AAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6A1E016-2C8B-442A-8469-8DF2BAC26AAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6A1E016-2C8B-442A-8469-8DF2BAC26AAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{339910F2-7E96-4EB7-93FD-DF557ABC76FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339910F2-7E96-4EB7-93FD-DF557ABC76FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339910F2-7E96-4EB7-93FD-DF557ABC76FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339910F2-7E96-4EB7-93FD-DF557ABC76FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0001A77-F966-4990-870E-76B8950DFA4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0001A77-F966-4990-870E-76B8950DFA4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0001A77-F966-4990-870E-76B8950DFA4C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0001A77-F966-4990-870E-76B8950DFA4C}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

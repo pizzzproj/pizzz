@@ -17,6 +17,8 @@
     </environment>
 </head>
 <body>
+    <script type="application/javascript" src="~/js/Map.js"></script>
+    @RenderSection("JavaScript", required: false) 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -38,8 +40,11 @@
         </div>
     </nav>
     <div class="container body-content">
+             
+            <script src="~/js/Map.js"></script>
+        
         @RenderBody()
-        @RenderSection("C:/Users/Elijah/Documents/Map.js", required: false)
+        
         <hr />
         <footer>
             <p>&copy; 2017 - pizzzUI</p>
@@ -50,6 +55,7 @@
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/Map.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
