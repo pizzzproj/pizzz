@@ -24,11 +24,9 @@ namespace pizzzadata.API.Controllers
 
         // GET: pizzzadata/api/menuitemprice/menuId/sizeId
         [HttpGet("{menuId=1}/{sizeId=1}")]
-        public IActionResult Get(int menuId, int sizeId)
+        public MenuItemPrice Get(int menuId, int sizeId)
         {
-            var menuItemPrice = _context.MenuItemPrice.Where(z => z.MenuId == menuId).FirstOrDefault(y => y.SizeId == sizeId);
-
-            return new ObjectResult(menuItemPrice.Price);
+            return _context.MenuItemPrice.Where(z => z.MenuId == menuId).FirstOrDefault(y => y.SizeId == sizeId);
         }
 
         // POST pizzzadata/api/menuitemprice
