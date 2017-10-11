@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,41 +26,70 @@ namespace pizzzadata.API.Controllers
         [HttpGet("{menuId=1}/{sizeId=1}")]
         public MenuItemPrice Get(int menuId, int sizeId)
         {
-            return _context.MenuItemPrice.Where(z => z.MenuId == menuId).FirstOrDefault(y => y.SizeId == sizeId);
+            try
+            {
+                return _context.MenuItemPrice.Where(z => z.MenuId == menuId).FirstOrDefault(y => y.SizeId == sizeId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         // POST pizzzadata/api/menuitemprice
         [HttpPost]
         public void Post([FromBody]Item newMenuItem)
         {
-            MenuItemPrice addMenuItem = new MenuItemPrice
+            try
             {
-                MenuId = _context.MenuItem.Single(z => z.Item == newMenuItem.ItemName).MenuId,
-                SizeId = _context.ItemSize.FirstOrDefault(z => z.Size == newMenuItem.ItemSize).SizeId,
-                Price = newMenuItem.ItemPrice
-            };
-            _context.MenuItemPrice.Add(addMenuItem);
-            _context.SaveChanges();
+                MenuItemPrice addMenuItem = new MenuItemPrice
+                {
+                    MenuId = _context.MenuItem.Single(z => z.Item == newMenuItem.ItemName).MenuId,
+                    SizeId = _context.ItemSize.FirstOrDefault(z => z.Size == newMenuItem.Size).SizeId,
+                    Price = newMenuItem.Price
+                };
+                _context.MenuItemPrice.Add(addMenuItem);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // PUT pizzzadata/api/menuitemprice
         [HttpPut]
         public void Put([FromBody]Item updatedMenuItem)
         {
-            _context.MenuItemPrice.Where(z => z.Menu.Item == updatedMenuItem.ItemName)
-                .FirstOrDefault(y => y.Size.Size == updatedMenuItem.ItemSize).Price
-                = updatedMenuItem.ItemPrice;
-            _context.SaveChanges();
+            try
+            {
+                _context.MenuItemPrice.Where(z => z.Menu.Item == updatedMenuItem.ItemName)
+                    .FirstOrDefault(y => y.Size.Size == updatedMenuItem.Size).Price
+                    = updatedMenuItem.Price;
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // DELETE pizzzadata/api/menuitemprice
         [HttpDelete]
         public void Delete([FromBody]Item deletedMenuItem)
         {
-            var menuItemPrice = _context.MenuItemPrice.Where(z => z.Menu.Item == deletedMenuItem.ItemName)
-                .FirstOrDefault(y => y.Size.Size == deletedMenuItem.ItemSize);
-            _context.MenuItemPrice.Remove(menuItemPrice);
-            _context.SaveChanges();
+            try
+            {
+                var menuItemPrice = _context.MenuItemPrice.Where(z => z.Menu.Item == deletedMenuItem.ItemName)
+                    .FirstOrDefault(y => y.Size.Size == deletedMenuItem.Size);
+                _context.MenuItemPrice.Remove(menuItemPrice);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

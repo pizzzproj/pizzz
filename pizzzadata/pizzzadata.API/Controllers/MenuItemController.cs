@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -29,44 +29,80 @@ namespace pizzzadata.API.Controllers
         [HttpGet]
         public List<MenuItem> Get()
         {
-            return _context.MenuItem.ToList();
+            try
+            {
+                return _context.MenuItem.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         // GET pizzzadata/api/menuitem/itemId
         [HttpGet("{itemId=1}")]
         public MenuItem Get(int itemId)
         {
-            return _context.MenuItem.FirstOrDefault(z => z.MenuId == itemId);
-            
+            try
+            {
+                return _context.MenuItem.FirstOrDefault(z => z.MenuId == itemId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         // POST pizzzadata/api/menuitem
         [HttpPost]
         public void Post([FromBody]Item newMenuItem)
         {
-            MenuItem addMenuItem = new MenuItem
+            try
             {
-                Item = newMenuItem.ItemName
-            };
-            _context.MenuItem.Add(addMenuItem);
-            _context.SaveChanges();
+                MenuItem addMenuItem = new MenuItem
+                {
+                    Item = newMenuItem.ItemName
+                };
+                _context.MenuItem.Add(addMenuItem);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // PUT pizzzadata/api/menuitem
         [HttpPut]
         public void Put(string newName, [FromBody]Item updatedMenuItem)
         {
-            _context.MenuItem.FirstOrDefault(z => z.Item == updatedMenuItem.ItemName).Item = newName;
-            _context.SaveChanges();
+            try
+            {
+                _context.MenuItem.FirstOrDefault(z => z.Item == updatedMenuItem.ItemName).Item = newName;
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // DELETE pizzzadata/api/menuitem
         [HttpDelete]
         public void Delete([FromBody]Item deletedMenuItem)
         {
-            var menuItem = _context.MenuItem.FirstOrDefault(z => z.Item == deletedMenuItem.ItemName);
-            _context.MenuItem.Remove(menuItem);
-            _context.SaveChanges();
+            try
+            {
+                var menuItem = _context.MenuItem.FirstOrDefault(z => z.Item == deletedMenuItem.ItemName);
+                _context.MenuItem.Remove(menuItem);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,22 +26,30 @@ namespace pizzzadata.API.Controllers
         [HttpGet]
         public List<Item> Get()
         {
-            var fullMenuQuery = from a in _context.MenuItemPrice
-                                join b in _context.MenuItem on a.MenuId equals b.MenuId
-                                join c in _context.ItemSize on a.SizeId equals c.SizeId
-                                select new Item
-                                {
-                                    ItemName = b.Item,
-                                    ItemSize = c.Size,
-                                    ItemPrice = (decimal) a.Price
-                                };
-            List<Item> apiFullMenu = new List<Item> { };
-
-            foreach (var item in fullMenuQuery)
+            try
             {
-                apiFullMenu.Add(item);
+                var fullMenuQuery = from a in _context.MenuItemPrice
+                                    join b in _context.MenuItem on a.MenuId equals b.MenuId
+                                    join c in _context.ItemSize on a.SizeId equals c.SizeId
+                                    select new Item
+                                    {
+                                        ItemName = b.Item,
+                                        Size = c.Size,
+                                        Price = (decimal)a.Price
+                                    };
+                List<Item> apiFullMenu = new List<Item> { };
+
+                foreach (var item in fullMenuQuery)
+                {
+                    apiFullMenu.Add(item);
+                }
+                return (apiFullMenu);
             }
-            return (apiFullMenu);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         // POST api/values
