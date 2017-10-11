@@ -39,7 +39,6 @@ namespace pizzzadata.API.Controllers
         // GET: pizzzadata/api/admin/1
         [HttpGet("{adminId=1}")]
         public PizzzaAdmin Get(int adminId)
-       
         {
             try
             {

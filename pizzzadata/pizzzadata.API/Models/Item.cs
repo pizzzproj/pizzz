@@ -7,9 +7,9 @@ namespace pizzzadata.API.Models
 {
     public class Item
     {
-        public int Id { get; set; }
-        public string Size { get; set; }
+        public int ItemId { get; set; }
+        public string ItemSize { get; set; }
         public string ItemName { get; set; }
-        public decimal Price { get; set; }
+        public decimal ItemPrice { get; set; }
     }
 }
