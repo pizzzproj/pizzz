@@ -36,8 +36,8 @@ namespace pizzzadata.API.Controllers
             MenuItemPrice addMenuItem = new MenuItemPrice
             {
                 MenuId = _context.MenuItem.Single(z => z.Item == newMenuItem.ItemName).MenuId,
-                SizeId = _context.ItemSize.FirstOrDefault(z => z.Size == newMenuItem.Size).SizeId,
-                Price = newMenuItem.Price
+                SizeId = _context.ItemSize.FirstOrDefault(z => z.Size == newMenuItem.ItemSize).SizeId,
+                Price = newMenuItem.ItemPrice
             };
             _context.MenuItemPrice.Add(addMenuItem);
             _context.SaveChanges();
@@ -48,8 +48,8 @@ namespace pizzzadata.API.Controllers
         public void Put([FromBody]Item updatedMenuItem)
         {
             _context.MenuItemPrice.Where(z => z.Menu.Item == updatedMenuItem.ItemName)
-                .FirstOrDefault(y => y.Size.Size == updatedMenuItem.Size).Price
-                = updatedMenuItem.Price;
+                .FirstOrDefault(y => y.Size.Size == updatedMenuItem.ItemSize).Price
+                = updatedMenuItem.ItemPrice;
             _context.SaveChanges();
         }
 
@@ -58,7 +58,7 @@ namespace pizzzadata.API.Controllers
         public void Delete([FromBody]Item deletedMenuItem)
         {
             var menuItemPrice = _context.MenuItemPrice.Where(z => z.Menu.Item == deletedMenuItem.ItemName)
-                .FirstOrDefault(y => y.Size.Size == deletedMenuItem.Size);
+                .FirstOrDefault(y => y.Size.Size == deletedMenuItem.ItemSize);
             _context.MenuItemPrice.Remove(menuItemPrice);
             _context.SaveChanges();
         }
