@@ -1,10 +1,14 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="pizzz" xmlns="http://ec2-34-207-116-9.compute-1.amazonaws.com/logic/item/item/">
 <head>
 	<meta charset="utf-8" lang="en" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="author" content="piZZZa" />
 	<title>24 Hour piZZZa</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>-->
+	<script src="Controller/menuListCtrl.js"></script>
 	<style>
 		a {
 			text-decoration: none;
@@ -12,13 +16,29 @@
 		}
 	</style>
 </head>
-<body data-ng-app="piZZZa">
-		<div ng-app="pizzz" ng-controller="menuListCtrl">
-			<ul>
-				<li ng-repeat="row in jsondata">
-					{{ row.name + ', ' + row.size + ', ' + row.price }} <br />
-				</li>
-			</ul>
+<body ng-app="piZZZa">
+		<div ng-controller="menuListCtrl">
+			{{error}}
+			<br />
+			<table>
+				<thead>
+					<tr>
+						<th>ItemId</th>
+						<th>ItemName</th>
+						<th>ItemSize</th>
+						<th>ItemPrice</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="row in employees">
+						<td>{{row.ItemId}}</td>
+						<td>{{row.ItemName}}</td>
+						<td>{{row.ItemSize}}</td>
+						<td>{{row.ItemPrice}}</td>
+					</tr>					
+				</tbody>
+			</table>
+
 		</div>
 	<header>
 		<hgroup>
@@ -35,7 +55,7 @@
 		<article>
 			<figure>
 				<img src="pizzza_480.jpg" />
-				<figcaption>Logo Bitches</figcaption>
+				
 			</figure>
 		</article>
 	</main>
@@ -43,8 +63,6 @@
 		<small>copyright &copy; 2017 Revature and piZZZa, all rights reserved.</small>
 	</footer>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
-	<script src="Controller/menuListCtrl.js"></script>
+
 </body>
 </html>
