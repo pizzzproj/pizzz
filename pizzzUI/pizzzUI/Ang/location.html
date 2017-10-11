@@ -10,6 +10,11 @@
     <script type="text/javascript" src="js/NGMap.js"></script>
 </head>
 <body>
+   <!-- <form action="/action_page.php">
+        Address: <input type="text" name="Address"><br>
+        
+        <input type="submit" value="Submit">
+    </form>--> 
     <div ng-controller="MapCtrl">
         <div id="map"></div>
         <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
