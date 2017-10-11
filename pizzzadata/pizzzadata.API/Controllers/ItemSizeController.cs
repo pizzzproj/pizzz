@@ -60,7 +60,7 @@ namespace pizzzadata.API.Controllers
             {
                 ItemSize addItemSize = new ItemSize
                 {
-                    Size = newMenuItem.Size
+                    Size = newMenuItem.ItemSize
                 };
                 _context.ItemSize.Add(addItemSize);
                 _context.SaveChanges();
@@ -77,7 +77,7 @@ namespace pizzzadata.API.Controllers
         {
             try
             {
-                _context.ItemSize.FirstOrDefault(z => z.Size == updatedMenuItem.Size).Size = newSize;
+                _context.ItemSize.FirstOrDefault(z => z.Size == updatedMenuItem.ItemSize).Size = newSize;
                 _context.SaveChanges();
             }
             catch (Exception ex)
@@ -92,7 +92,7 @@ namespace pizzzadata.API.Controllers
         {
             try
             {
-                var sizeItem = _context.ItemSize.FirstOrDefault(z => z.Size == deletedMenuItem.Size);
+                var sizeItem = _context.ItemSize.FirstOrDefault(z => z.Size == deletedMenuItem.ItemSize);
                 _context.ItemSize.Remove(sizeItem);
                 _context.SaveChanges();
             }

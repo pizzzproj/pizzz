@@ -34,8 +34,8 @@ namespace pizzzadata.API.Controllers
                                     select new Item
                                     {
                                         ItemName = b.Item,
-                                        Size = c.Size,
-                                        Price = (decimal)a.Price
+                                        ItemSize = c.Size,
+                                        ItemPrice = (decimal)a.Price
                                     };
                 List<Item> apiFullMenu = new List<Item> { };
 
