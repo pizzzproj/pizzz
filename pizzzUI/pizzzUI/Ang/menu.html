@@ -13,6 +13,13 @@
 	</style>
 </head>
 <body data-ng-app="Pizzza">
+		<div ng-app="pizzz" ng-controller="menuListCtrl">
+			<ul>
+				<li ng-repeat="row in jsondata">
+					{{ row.name + ', ' + row.size + ', ' + row.price }} <br />
+				</li>
+			</ul>
+		</div>
 	<header>
 		<hgroup>
 			<h1>Pizzza</h1>
@@ -38,5 +45,6 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+	<script src="Controller/menuListCtrl.js"></script>
 </body>
 </html>
