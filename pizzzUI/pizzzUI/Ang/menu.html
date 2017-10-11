@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8" lang="en" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="author" content="Pizzza" />
-	<title>24 Hour Pizzza</title>
+	<meta name="author" content="piZZZa" />
+	<title>24 Hour piZZZa</title>
 	<style>
 		a {
 			text-decoration: none;
@@ -12,10 +12,17 @@
 		}
 	</style>
 </head>
-<body data-ng-app="Pizzza">
+<body data-ng-app="piZZZa">
+		<div ng-app="pizzz" ng-controller="menuListCtrl">
+			<ul>
+				<li ng-repeat="row in jsondata">
+					{{ row.name + ', ' + row.size + ', ' + row.price }} <br />
+				</li>
+			</ul>
+		</div>
 	<header>
 		<hgroup>
-			<h1>Pizzza</h1>
+			<h1>piZZZa</h1>
 			<h2>24 Hour Delivery!</h2>
 		</hgroup>
 		<a href="index.html">Home</a>
@@ -38,5 +45,6 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+	<script src="Controller/menuListCtrl.js"></script>
 </body>
 </html>
