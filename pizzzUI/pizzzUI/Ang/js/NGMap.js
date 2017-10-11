@@ -3,27 +3,27 @@ var cities = [
     {
         
         city: 'Tampa',
-        desc: 'In Florida',
+        desc: '412 E Zack St',
             lat: 27.9506,
             long: -82.4572
     },
     {
         city: 'Sarasota',
-        desc: 'The Heart of India!',
+        desc: '2000 Main St',
             lat: 27.3364,
             long: -82.5307
     },
     {
         
         city: 'Miami',
-        desc: 'Bollywood city!',
+        desc: '100-124 SE 12th Terrace',
             lat: 25.7617,
             long: -80.1918
     },
     {
         
         city: 'Tristan da Cunha',
-        desc: 'Howrah Bridge!',
+        desc: 'Volcano St',
             lat: -37.1052,
             long: -12.2777
     }
