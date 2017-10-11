@@ -1,39 +1,38 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html ng-app="mapsApp">
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="author" content="piZZZa" />
-	<title>24 Hour piZZZa</title>
-	<style>
-		a {
-			text-decoration: none;
-			font-family: Arial;
-		}
-	</style>
+    <meta charset="ISO-8859-1">
+    <title></title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBifp7uGD9PreLx2wNeCZWQZ8_ce6OgdYw&callback=initMap" type="text/javascript"></script>
+    <script type="text/javascript" src="js/NGMap.js"></script>
 </head>
-<body data-ng-app="piZZZa">
-	<header>
-		<hgroup>
-			<h1>piZZZa</h1>
-			<h2>24 Hour Delivery!</h2>
-		</hgroup>
-		<a href="index.html">Home</a>
-		<a href="menu.html">Menu</a>
-		<a href="contact.html">Contact</a>
-		<a href="about.html">About</a>
-		<a href="location.html">Location</a>
-	</header>
-	<main>
-		<article>
-			<figure>
-				<img src="pizzza_480.jpg" />
-				
-			</figure>
-		</article>
-	</main>
-	<footer>
-		<small>copyright &copy; 2017 Revature and piZZZa, all rights reserved.</small>
-	</footer>
+<body>
+    <header>
+        <hgroup>
+            <h1>piZZZa</h1>
+            <h2>24 Hour Delivery!</h2>
+        </hgroup>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="location.html">Location</a>
+    </header>
+   <!-- <form action="/action_page.php">
+        Address: <input type="text" name="Address"><br>
+        
+        <input type="submit" value="Submit">
+    </form>--> 
+    <div ng-controller="MapCtrl">
+        <div id="map"></div>
+        <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
+            <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
+                <label id="names">{{marker.title}}</label>
+            </a>
+        </div>
+    </div>
 </body>
 </html>

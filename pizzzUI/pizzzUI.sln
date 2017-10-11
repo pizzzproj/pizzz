@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pizzzUI", "pizzzUI\pizzzUI.csproj", "{C8113649-ED98-4A7D-83ED-4137732E7C45}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSite2", "..\..\..\WebSites\WebSite2\", "{D9BFDFC6-433B-4539-A678-FBD351DD2375}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSite2(1)", "..\..\..\WebSites\WebSite2\", "{D9BFDFC6-433B-4539-A678-FBD351DD2375}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_49988"

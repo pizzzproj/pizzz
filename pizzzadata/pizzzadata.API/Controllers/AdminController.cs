@@ -23,42 +23,89 @@ namespace pizzzadata.API.Controllers
 
         // GET: pizzzadata/api/admin
         [HttpGet]
-        public IActionResult Get()
+        public List<PizzzaAdmin> Get()
         {
-            var adminRec = new List<PizzzaAdmin>();
-
-            foreach (var record in _context.PizzzaAdmin)
+            try
             {
-                adminRec.Add(record);
+                return _context.PizzzaAdmin.ToList();
             }
-            return new ObjectResult(adminRec);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         // GET: pizzzadata/api/admin/1
         [HttpGet("{adminId=1}")]
-        public IActionResult Get(int adminId)       
+        public PizzzaAdmin Get(int adminId)
         {
-            var adminRec = _context.PizzzaAdmin.FirstOrDefault(y => y.AdminId == adminId);
-
-            return new ObjectResult(adminRec);
+            try
+            {
+                return _context.PizzzaAdmin.FirstOrDefault(z => z.AdminId == adminId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         // POST pizzzadata/api/admin
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]PizzzaAdmin newAdmin)
         {
+            try
+            {
+                PizzzaAdmin addAdminItem = new PizzzaAdmin
+                {
+                    Fname = newAdmin.Fname,
+                    Lname = newAdmin.Lname,
+                    Username = newAdmin.Username,
+                    AdminPassword = newAdmin.AdminPassword
+                };
+                _context.PizzzaAdmin.Add(addAdminItem);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // PUT pizzzadata/api/admin
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]PizzzaAdmin updatedAdmin)
         {
+            try
+            {
+                var updated = _context.PizzzaAdmin.FirstOrDefault(z => z.AdminId == updatedAdmin.AdminId);
+                updated.Fname = updatedAdmin.Fname;
+                updated.Lname = updatedAdmin.Lname;
+                updated.Username = updatedAdmin.Username;
+                updated.AdminPassword = updatedAdmin.AdminPassword;
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // DELETE pizzzadata/api/admin
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(PizzzaAdmin deletedAdmin)
         {
+            try
+            {
+                var adminItem = _context.PizzzaAdmin.FirstOrDefault(z => z.AdminId == deletedAdmin.AdminId);
+                _context.PizzzaAdmin.Remove(adminItem);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,43 +26,80 @@ namespace pizzzadata.API.Controllers
         [HttpGet]
         public List<ItemSize> Get()
         {
-            return _context.ItemSize.ToList();
+            try
+            {
+                return _context.ItemSize.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         // GET pizzzadata/api/itemsize/sizeId
         [HttpGet("{sizeId=1}")]
         public ItemSize Get(int sizeId)
         {
-            return _context.ItemSize.FirstOrDefault(z => z.SizeId == sizeId);
+            try
+            {
+                return _context.ItemSize.FirstOrDefault(z => z.SizeId == sizeId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         // POST pizzzadata/api/itemsize
         [HttpPost]
         public void Post([FromBody]Item newMenuItem)
         {
-            ItemSize addItemSize = new ItemSize
+            try
             {
-                Size = newMenuItem.ItemSize
-            };
-            _context.ItemSize.Add(addItemSize);
-            _context.SaveChanges();
+                ItemSize addItemSize = new ItemSize
+                {
+                    Size = newMenuItem.ItemSize
+                };
+                _context.ItemSize.Add(addItemSize);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // PUT pizzzadata/api/itemsize
         [HttpPut]
         public void Put(string newSize, [FromBody]Item updatedMenuItem)
         {
-            _context.ItemSize.FirstOrDefault(z => z.Size == updatedMenuItem.ItemSize).Size = newSize;
-            _context.SaveChanges();
+            try
+            {
+                _context.ItemSize.FirstOrDefault(z => z.Size == updatedMenuItem.ItemSize).Size = newSize;
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // DELETE pizzzadata/api/itemsize
         [HttpDelete]
         public void Delete([FromBody]Item deletedMenuItem)
         {
-            var sizeItem = _context.ItemSize.FirstOrDefault(z => z.Size == deletedMenuItem.ItemSize);
-            _context.ItemSize.Remove(sizeItem);
-            _context.SaveChanges();
+            try
+            {
+                var sizeItem = _context.ItemSize.FirstOrDefault(z => z.Size == deletedMenuItem.ItemSize);
+                _context.ItemSize.Remove(sizeItem);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
