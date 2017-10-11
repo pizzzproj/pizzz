@@ -33,14 +33,7 @@ var cities = [
 var sampleApp = angular.module('mapsApp', []);
 sampleApp.controller('MapCtrl', function ($scope) {
 
-  
-
-       var customerName = prompt("Please enter your name", "");
-if (customerName!= null) {
-            document.getElementById("welcome").innerHTML =
-           "Hello " + customerName + "! How are you today?";
-       }
-
+        
 
 
     var mapOptions = {
