@@ -74,7 +74,7 @@ namespace pizzzadata.API.Controllers
         }
 
         // PUT pizzzadata/api/admin
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Put([FromBody]PizzzaAdmin updatedAdmin)
         {
             try
@@ -93,7 +93,7 @@ namespace pizzzadata.API.Controllers
         }
 
         // DELETE pizzzadata/api/admin
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public void Delete(PizzzaAdmin deletedAdmin)
         {
             try
